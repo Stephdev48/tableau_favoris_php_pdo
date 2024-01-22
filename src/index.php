@@ -26,8 +26,8 @@ $favoris = $result->fetchAll(PDO::FETCH_ASSOC);
             <?php 
             foreach($favoris as $favori){
                 ?>
-            <tr>
-                <td class="border-solid border-2 border-black p-2.5 font-bold text-center"><?php echo "$favori[id_fav]";?></td>
+            <tr class="hover:bg-slate-200">
+                <td class="border-solid border-2 border-black p-2.5 font-bold text-center "><?php echo "$favori[id_fav]";?></td>
                 <td class="border-solid border-2 border-black p-2.5 font-bold"><?php echo "$favori[libelle]";?></td>
                 <td class="border-solid border-2 border-black p-2.5 font-bold"><?php echo "$favori[date_creation]";?></td>
                 <td class="border-solid border-2 border-black p-2.5 font-bold"><?php echo "$favori[url]";?></td>
