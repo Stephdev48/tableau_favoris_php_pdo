@@ -6,7 +6,7 @@
     <link href="./output.css" rel="stylesheet">
     <title>PHP PDO</title>
 </head>
-<body>
-    <header>
-        <h1 class="text-6xl font-bold text-center p-7">Mes favoris</h1>
+<body class="bg-red-100">
+    <header class="p-11">
+        <h1 class="text-6xl font-bold text-center">Mes favoris <br><span class="text-sm">( à moi )</span></h1>
     </header>
