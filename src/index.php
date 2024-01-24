@@ -21,7 +21,7 @@
 
 
 <!-- Sélecteur de catégories -->
-    <section class="flex justify-center p-10 items-center border-solid border-black border-2 bg-indigo-300 m-10">
+    <section class="flex justify-center p-10 items-center border-solid border-black border-2 bg-indigo-300 m-10 rounded-2xl">
         <div class="flex items-center">
             <label class="text-3xl pr-5 font-bold">Catégories</label>
             <form>
@@ -55,21 +55,21 @@
                 <th class="border-solid border-2 border-black p-2.5 text-2xl">Options</th>
             </tr>
             <?php 
-            foreach($favoris as $favori){
-                ?>
-                <tr class="hover:bg-slate-200 bg-slate-100">
-                    <td class="border-solid border-2 border-black p-2.5 font-bold text-center "><?php echo "$favori[id_fav]";?></td>
-                    <td class="border-solid border-2 border-black p-2.5 font-bold"><?php echo "$favori[libelle]";?></td>
-                    <td class="border-solid border-2 border-black p-2.5 font-bold text-center"><?php echo "$favori[date_creation]";?></td>
-                    <td class="border-solid border-2 border-black p-2.5 font-bold"><?php echo "$favori[url]";?></td>
-                    <td class="border-solid border-2 border-black p-2.5 font-bold text-center"><?php echo "$favori[id_dom]";?></td>
-                    <td class="border-solid border-2 border-black p-2.5 text-center">
-                        <button type="button" name="options" value="del" class=""><img src="images/pen-to-square-regular.svg" alt="trash-can" width="30px"/></button>
-                        <button type="button" name="options" value="edit" class=""><img src="images/trash-can-regular.svg" alt="trash-can" width="30px"/></button>
-                    </td>
-                </tr>
-            <?php
-            }
+                foreach($favoris as $favori){
+                    ?>
+                    <tr class="hover:bg-slate-300 odd:bg-slate-100 even:bg-slate-200">
+                        <td class="border-solid border-2 border-black p-2.5 font-bold text-center "><?php echo "$favori[id_fav]";?></td>
+                        <td class="border-solid border-2 border-black p-2.5 font-bold"><?php echo "$favori[libelle]";?></td>
+                        <td class="border-solid border-2 border-black p-2.5 font-bold text-center"><?php echo "$favori[date_creation]";?></td>
+                        <td class="border-solid border-2 border-black p-2.5 font-bold"><?php echo "<a href='".$favori['url']."' target='about_blank'class='text-teal-500 underline'>".$favori['url']."</a>";?></td>
+                        <td class="border-solid border-2 border-black p-2.5 font-bold text-center"><?php echo "$favori[id_dom]";?></td>
+                        <td class="border-solid border-2 border-black p-2.5 text-center">
+                            <button type="button" name="options" value="del" class=""><img src="images/pen-to-square-regular.svg" alt="edit_icon" width="35px" class="bg-yellow-300 rounded-lg p-1 border"/></button>
+                            <button type="button" name="options" value="edit" class=""><img src="images/trash-can-regular.svg" alt="trash-can" width="35px"class="bg-red-500 rounded-lg p-1"/></button>
+                        </td>
+                    </tr>
+                <?php
+                }
             ?>
         </table>
     </section>
