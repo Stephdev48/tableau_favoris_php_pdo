@@ -3,11 +3,17 @@
 /*on récupère les constantes de connexion définies dans connect.php*/
 require("connect.php");
 
-/*on prépare la connexion à la base de données*/
-define('SERVER',"localhost");
-define('USER',"root");
-define('PASSWD',"");
-define('BASE',"favoris");
+$dsn="mysql:dbname=".BASE.";host=".SERVER;
+
+try{
+/*connexion à la base de données*/
+    $pdo=new PDO($dsn,USER,PASSWD);
+} catch(PDOException $e){
+    echo "Echec de la connexion: %s\n" .$e->getMessage();
+    exit();
+}
+echo "<p class='text-align'>Connexion réussie à la base de données</p>";
+
 
 
 //connexion à la BDD
