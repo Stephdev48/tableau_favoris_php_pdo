@@ -12,12 +12,12 @@ try{
     echo "Echec de la connexion: %s\n" .$e->getMessage();
     exit();
 }
-echo "<p class='text-align'>Connexion réussie à la base de données</p>";
+echo "<p class='text-center'>( Connexion réussie à la base de données ! )</p>";
 
 
 
-//connexion à la BDD
-$pdo = new PDO('mysql:host=localhost;dbname=favoris', 'root', '', array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+// //connexion à la BDD
+// $pdo = new PDO('mysql:host=localhost;dbname=favoris', 'root', '', array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
 
 
 
