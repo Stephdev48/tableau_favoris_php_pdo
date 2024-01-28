@@ -6,15 +6,12 @@
 
     include("pdo.php");
 
-    // // Récupération des favoris :
-    // $result = $pdo->query("SELECT * FROM favori");
-    // $favoris = $result->fetchAll(PDO::FETCH_ASSOC);
 
     // Récupération des catégories :
     $result_cat = $pdo->query("SELECT * FROM categorie");
     $categories = $result_cat->fetchAll(PDO::FETCH_ASSOC);
 
-    // // Récupération des domaines :
+    // Récupération des domaines :
     $result_dom = $pdo->query("SELECT * FROM domaine");
     $domaines = $result_dom->fetchAll(PDO::FETCH_ASSOC);
 
@@ -34,7 +31,6 @@
                 }elseif(isset($_GET["categories"]) && isset($_GET["domaines"])){
                     $requestSql .= " AND cat_fav.id_cat = ".$_GET["categories"]." AND domaine.id_dom = ".$_GET["domaines"];
                 }
-                
 
 
                 $resultat = $pdo->query($requestSql);     
@@ -79,14 +75,15 @@
 
 
 <!-- Tableau -->
-    <section class="">
+    <section>
         <table class="flex justify-center m-10">
             <tr class=" bg-slate-400/60">
-                <th class="border-solid border-2 border-black p-2.5 text-2xl">ID Favori</th>  
+                <th class="border-solid border-2 border-black p-2.5 text-2xl">ID Favori</th>
+                <th class="border-solid border-2 border-black p-2.5 text-2xl">ID Dom</th>  
                 <th class="border-solid border-2 border-black p-2.5 text-2xl">Libellé</th>
                 <th class="border-solid border-2 border-black p-2.5 text-2xl">Date ajout</th>
                 <th class="border-solid border-2 border-black p-2.5 text-2xl">Lien</th>
-                <th class="border-solid border-2 border-black p-2.5 text-2xl">ID Dom</th>
+                <th class="border-solid border-2 border-black p-2.5 text-2xl">Afficher</th>
                 <th class="border-solid border-2 border-black p-2.5 text-2xl">Options</th>
             </tr>
             <?php 
@@ -94,13 +91,16 @@
                     ?>
                     <tr class="hover:bg-slate-300 odd:bg-slate-100 even:bg-slate-200">
                         <td class="border-solid border-2 border-black p-2.5 font-bold text-center text-lg"><?php echo $favori["id_fav"];?></td>
+                        <td class="border-solid border-2 border-black p-2.5 font-bold text-center text-lg"><?php echo "$favori[id_dom]";?></td>
                         <td class="border-solid border-2 border-black p-2.5 font-bold text-lg"><?php echo $favori["libelle"];?></td>
                         <td class="border-solid border-2 border-black p-2.5 font-bold text-center text-lg"><?php echo $favori["date_creation"];?></td>
                         <td class="border-solid border-2 border-black p-2.5 font-bold text-lg"><?php echo "<a href='".$favori['url']."' target='about_blank'class='text-teal-500 underline'>".$favori['url']."</a>";?></td>
-                        <td class="border-solid border-2 border-black p-2.5 font-bold text-center text-lg"><?php echo "$favori[id_dom]";?></td>
                         <td class="border-solid border-2 border-black p-2.5 text-center">
-                            <button type="submit" name="options" value="del" class=""><img src="images/pen-to-square-regular.svg" alt="edit_icon" width="35px" class="bg-yellow-300 rounded-lg p-1"/></button>
-                            <button type="submit" name="options" value="edit" class=""><img src="images/trash-can-regular.svg" alt="trash_can" width="32px"class="bg-red-500 rounded-lg p-1"/></button>
+                            <button type="submit" name="see" value="see"><img src="images/eye-regular.svg" alt="see_icon" width="35px" class="bg-violet-400 rounded-lg p-1"/></button>
+                        </td>
+                        <td class="border-solid border-2 border-black p-2.5 text-center">
+                            <button type="submit" name="options" value="edit"><img src="images/pen-to-square-regular.svg" alt="edit_icon" width="35px" class="bg-yellow-300 rounded-lg p-1"/></button>
+                            <button type="submit" name="options" value="del"><img src="images/trash-can-regular.svg" alt="trash_can" width="32px"class="bg-red-500 rounded-lg p-1"/></button>
                         </td>
                     </tr>
                     <?php
