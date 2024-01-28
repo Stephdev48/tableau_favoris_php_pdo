@@ -15,8 +15,9 @@
     $categories = $result_cat->fetchAll(PDO::FETCH_ASSOC);
 
     // // Récupération des domaines :
-    // $result_dom = $pdo->query("SELECT * FROM domaine");
-    // $domaines = $result_dom->fetchAll(PDO::FETCH_ASSOC);
+    $result_dom = $pdo->query("SELECT * FROM domaine");
+    $domaines = $result_dom->fetchAll(PDO::FETCH_ASSOC);
+
 
     // Alimentation de la variable pour le filtre
     $requestSql = ("SELECT * FROM favori
@@ -26,10 +27,14 @@
                     WHERE 1=1    
                 ");
 
-
-                if(isset($_GET["categories"])){
+                if(!empty($_GET["categories"]) && empty($_GET["domaines"])){
                     $requestSql .= " AND cat_fav.id_cat = ".$_GET["categories"];
+                }elseif(empty($_GET["categories"]) && !empty($_GET["domaines"])){
+                    $requestSql .= " AND domaine.id_dom = ".$_GET["domaines"];
+                }elseif(isset($_GET["categories"]) && isset($_GET["domaines"])){
+                    $requestSql .= " AND cat_fav.id_cat = ".$_GET["categories"]." AND domaine.id_dom = ".$_GET["domaines"];
                 }
+                
 
 
                 $resultat = $pdo->query($requestSql);     
@@ -40,11 +45,11 @@
 
 
 
-<!-- Sélecteur de catégories -->
+<!-- Sélecteur de catégorie et de domaine -->
     <section class="flex justify-center p-10 items-center border-solid border-black border-2 bg-indigo-300 m-6 rounded-2xl">
         <div class="flex items-center">
-            <label class="text-3xl pr-5 font-bold">Catégories</label>
             <form action="" method="GET">
+                <label class="text-3xl pr-5 font-bold">Catégories</label>
                 <select name="categories" class="text-xl border-solid border-2 border-black rounded-xl p-2 cursor-pointer  hover:bg-slate-100 hover:shadow-xl">
                     <option value="">-- Choisissez une catégorie --</option>
                     <?php 
@@ -55,7 +60,18 @@
                         }
                     ?>
                 </select>
-                <input type="submit" name="filtre" value="Filtrer par catégorie" class="text-xl bg-lime-400 p-3 rounded-xl border-solid border-black border-2 ml-5 cursor-pointer hover:bg-lime-500">
+                <label class="text-3xl pr-5 font-bold ml-20">Domaines</label>
+                <select name="domaines" class="text-xl border-solid border-2 border-black rounded-xl p-2 cursor-pointer  hover:bg-slate-100 hover:shadow-xl">
+                    <option value="">-- Choisissez un domaine --</option>
+                    <?php 
+                        foreach($domaines as $domaine){
+                        ?>
+                        <option value="<?php echo $domaine['id_dom']?>"><?php echo $domaine['nom']?></option>
+                        <?php
+                        }
+                    ?>
+                </select>
+                <input type="submit" name="filtre" value="Filtrer" class="text-xl bg-lime-400 p-3 rounded-xl border-solid border-black border-2 ml-20 cursor-pointer hover:bg-lime-500">
             </form>
         </div>
     </section>
