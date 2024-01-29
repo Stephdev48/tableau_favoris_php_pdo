@@ -16,12 +16,12 @@
     $domaines = $result_dom->fetchAll(PDO::FETCH_ASSOC);
 
 
-    // Alimentation de la variable pour le filtre
+    // Alimentation de la variable contenant la requête du filtre
     $requestSql = ("SELECT * FROM favori
-                    INNER JOIN cat_fav      ON favori.id_fav = cat_fav.id_cat
+                    INNER JOIN cat_fav      ON favori.id_fav = cat_fav.id_fav
                     INNER JOIN categorie    ON categorie.id_cat = cat_fav.id_cat
-                    INNER JOIN domaine      ON domaine.id_dom = favori.id_dom
-                    WHERE 1=1    
+                    INNER JOIN domaine      ON domaine.id_dom = cat_fav.id_cat
+                    WHERE 1=1
                 ");
 
                 if(!empty($_GET["categories"]) && empty($_GET["domaines"])){
@@ -103,8 +103,14 @@
                             <button type="submit" name="see" value="see"><a href="seeFavori.php?id=<?php echo $favori["id_fav"]?>" target='_blank'><img src="images/eye-regular.svg" alt="see_icon" width="35px" class="bg-violet-400 rounded-lg p-1"/></a></button>
                         </td>
                         <td class="border-solid border-2 border-black p-2.5 text-center">
-                            <button type="submit" name="options" value="edit"><img src="images/pen-to-square-regular.svg" alt="edit_icon" width="35px" class="bg-yellow-300 rounded-lg p-1"/></button>
-                            <button type="submit" name="options" value="del"><img src="images/trash-can-regular.svg" alt="trash_can" width="32px"class="bg-red-500 rounded-lg p-1"/></button>
+                            <div class="flex justify-center items-center">
+                                <form action="edit.php" method="GET" class="mr-2">
+                                    <a href="edit.php?'.$favori[id_fav].'"><img src="images/pen-to-square-regular.svg" alt="edit_icon" width="35px" class="bg-yellow-300 rounded-lg p-1"/></a>
+                                </form>
+                                <form action="delete.php" method="GET">
+                                    <a href="delete.php?'.$favori[id_fav].'"><img src="images/trash-can-regular.svg" alt="delete_icon" width="32px" class="bg-red-500 rounded-lg p-1"/></a>
+                                </form>
+                            </div>
                         </td>
                     </tr>
                     <?php
