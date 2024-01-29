@@ -556,6 +556,10 @@ video {
   margin: 1.5rem;
 }
 
+.m-40 {
+  margin: 10rem;
+}
+
 .ml-14 {
   margin-left: 3.5rem;
 }
@@ -610,6 +614,10 @@ video {
 
 .rounded-xl {
   border-radius: 0.75rem;
+}
+
+.rounded {
+  border-radius: 0.25rem;
 }
 
 .border-2 {

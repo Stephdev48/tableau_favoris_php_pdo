@@ -12,7 +12,6 @@ try{
     echo "Echec de la connexion: %s\n" .$e->getMessage();
     exit();
 }
-echo "<p class='text-center'>( Connexion réussie à la base de données ! )</p>";
 
 
 //affiche toutes les méthodes PDO

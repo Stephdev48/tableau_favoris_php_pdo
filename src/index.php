@@ -41,7 +41,7 @@
 
 
 
-<!-- Sélecteur de catégorie et de domaine -->
+<!-- Sélecteur de catégorie et de domaine et champ de recherche -->
     <section class="flex justify-center flex-col p-10 items-center border-solid border-black border-2 bg-indigo-300 m-6 rounded-2xl">
         <div class="flex items-center">
             <form action="" method="GET">
@@ -70,9 +70,9 @@
                 <input type="submit" name="filtre" value="Filtrer" class="text-xl bg-lime-400 p-3 rounded-xl border-solid border-black border-2 ml-20 cursor-pointer hover:bg-lime-500">
             </form>
         </div>
-        <form action="search.php" method="GET" class="flex pt-10 pb-2 text-xl font-semibold">
+        <form action="search.php" method="GET" class="flex pt-10 pb-2 text-xl font-semibold items-center">
             <h3 class="mr-8">Rechercher par mot-clé</h3>
-            <input type="search" name="terme" class="rounded-lg">
+            <input type="search" name="terme" class="rounded-lg p-2">
         </form>
     </section>
 
