@@ -5,11 +5,17 @@
 
 
 <?php
-    print_r( $_GET['terme']);
-    $req_search = ("SELECT * FROM favori WHERE libelle LIKE '%'.$_GET['terme'].'%';");
+    $req_search = ("SELECT * FROM favori WHERE libelle LIKE '%".$_GET['terme']."%';");
     $search = $pdo->query($req_search);
     $result_search = $search->fetchAll(PDO::FETCH_ASSOC);
-    print_r($result_search);
+
+    // echo "<pre>";
+    // print_r($result_search);
+    // echo "</pre>";
+    // $keys = array_keys($result_search);
+    // echo "<pre>";
+    // print_r($keys);
+    // echo "</pre>";
     ?>
 
 
@@ -27,11 +33,11 @@
                 <th class="border-solid border-2 border-black p-2.5 text-2xl">Options</th>
             </tr>
             <?php 
-                foreach($result_seach as $mon_result){
+                foreach($result_search as $mon_result){
                     ?>
                     <tr class="hover:bg-slate-300 odd:bg-slate-100 even:bg-slate-200">
                         <td class="border-solid border-2 border-black p-2.5 font-bold text-center text-lg"><?php echo $mon_result["id_fav"];?></td>
-                        <td class="border-solid border-2 border-black p-2.5 font-bold text-center text-lg"><?php echo "$mon_result[id_dom]";?></td>
+                        <td class="border-solid border-2 border-black p-2.5 font-bold text-center text-lg"><?php echo $mon_result["id_dom"];?></td>
                         <td class="border-solid border-2 border-black p-2.5 font-bold text-lg"><?php echo $mon_result["libelle"];?></td>
                         <td class="border-solid border-2 border-black p-2.5 font-bold text-center text-lg"><?php echo $mon_result["date_creation"];?></td>
                         <td class="border-solid border-2 border-black p-2.5 font-bold text-lg"><?php echo "<a href='".$mon_result['url']."' target='about_blank'class='text-teal-500 underline'>".$mon_result['url']."</a>";?></td>
