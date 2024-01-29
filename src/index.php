@@ -104,12 +104,10 @@
                         </td>
                         <td class="border-solid border-2 border-black p-2.5 text-center">
                             <div class="flex justify-center items-center">
-                                <form action="edit.php" method="GET" class="mr-2">
-                                    <a href="edit.php?'.$favori[id_fav].'"><img src="images/pen-to-square-regular.svg" alt="edit_icon" width="35px" class="bg-yellow-300 rounded-lg p-1"/></a>
-                                </form>
-                                <form action="delete.php" method="GET">
-                                    <a href="delete.php?'.$favori[id_fav].'"><img src="images/trash-can-regular.svg" alt="delete_icon" width="32px" class="bg-red-500 rounded-lg p-1"/></a>
-                                </form>
+                                <?php echo "<a href='edit.php?id=".$favori["id_fav"]."'><img src='images/pen-to-square-regular.svg' alt='edit_icon' width='35px' class='bg-yellow-300 rounded-lg p-1'/></a>";
+                                    ?>
+                                <?php echo "<a href='delete.php?id_del=".$favori['id_fav']."' class='ml-2'><img src='images/trash-can-regular.svg' alt='delete_icon' width='32px' class='bg-red-500 rounded-lg p-1'/></a>";
+                                    ?>
                             </div>
                         </td>
                     </tr>
@@ -117,6 +115,7 @@
                 }
             ?>
         </table>
+
     </section>
 
 
