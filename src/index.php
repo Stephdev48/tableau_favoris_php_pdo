@@ -70,6 +70,10 @@
                 <input type="submit" name="filtre" value="Filtrer" class="text-xl bg-lime-400 p-3 rounded-xl border-solid border-black border-2 ml-20 cursor-pointer hover:bg-lime-500">
             </form>
         </div>
+        <form>
+            <input type = "search" name = "terme">
+            <input type = "submit" name = "s" value = "Rechercher">
+        </form>
     </section>
 
 
@@ -96,7 +100,7 @@
                         <td class="border-solid border-2 border-black p-2.5 font-bold text-center text-lg"><?php echo $favori["date_creation"];?></td>
                         <td class="border-solid border-2 border-black p-2.5 font-bold text-lg"><?php echo "<a href='".$favori['url']."' target='about_blank'class='text-teal-500 underline'>".$favori['url']."</a>";?></td>
                         <td class="border-solid border-2 border-black p-2.5 text-center">
-                            <button type="submit" name="see" value="see"><img src="images/eye-regular.svg" alt="see_icon" width="35px" class="bg-violet-400 rounded-lg p-1"/></button>
+                            <button type="submit" name="see" value="see"><a href="seeFavori.php?id=<?php echo $favori["id_fav"]?>" target='_blank'><img src="images/eye-regular.svg" alt="see_icon" width="35px" class="bg-violet-400 rounded-lg p-1"/></a></button>
                         </td>
                         <td class="border-solid border-2 border-black p-2.5 text-center">
                             <button type="submit" name="options" value="edit"><img src="images/pen-to-square-regular.svg" alt="edit_icon" width="35px" class="bg-yellow-300 rounded-lg p-1"/></button>
