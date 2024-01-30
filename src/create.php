@@ -68,19 +68,20 @@
 
 <?php
 
+if(count($_POST)>0){
     $nom = htmlspecialchars($_POST['nom']);
     $cat = htmlspecialchars($_POST['cat']);
     $url = htmlspecialchars($_POST['url']);
     $dom = htmlspecialchars($_POST['dom']);
 
-    echo $nom." ".$cat." ".$url." ".$dom." ".date('Y-m-d');
+    // echo $nom." ".$cat." ".$url." ".$dom;
 
 
-    $creer_favori = ("INSERT INTO favori (libelle, date_creation, url, id_dom)  VALUES('$nom', 'date('Y-m-d')', '$url', '$dom')");
-    $ajout_cat = ("INSERT INTO categorie VALUES('$cat');");
+    $creer_favori = ("INSERT INTO favori (libelle, date_creation, url, id_dom)  VALUES(:nom, NOW(), :url, :dom)");
+    $arrayParam= array(':nom' => $nom, ':url' => $url, ':dom' => $dom);
     $result_fav = $pdo->prepare($creer_favori);
-    $creer_favori->execute();
-    
+    $result_fav->execute($arrayParam);
+}
     ?>
 
 

@@ -43,7 +43,7 @@
                 <form action="" method="GET">
                     <label class="text-3xl pr-5 font-bold">Catégories</label>
                     <select name="categories" class="text-xl border-solid border-2 border-black rounded-xl p-2 cursor-pointer  hover:bg-slate-100 hover:shadow-xl">
-                        <option value="">-- Choisissez une catégorie --</option>
+                        <option value="">-- Choisir une catégorie --</option>
                         <?php 
                             foreach($categories as $categorie){
                             ?>
@@ -54,7 +54,7 @@
                     </select>
                     <label class="text-3xl pr-5 font-bold ml-20">Domaines</label>
                     <select name="domaines" class="text-xl border-solid border-2 border-black rounded-xl p-2 cursor-pointer  hover:bg-slate-100 hover:shadow-xl">
-                        <option value="">-- Choisissez un domaine --</option>
+                        <option value="">-- Choisir un domaine --</option>
                         <?php 
                             foreach($domaines as $domaine){
                             ?>
