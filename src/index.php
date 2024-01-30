@@ -68,13 +68,13 @@
             </div>
             <form action="search.php" method="GET" class="flex pt-10 pb-2 text-xl font-semibold items-center">
                     <h3 class="mr-8">Recherche par mot-clé</h3>
-                    <input type="search" name="terme" class="rounded-lg p-2">
+                    <input type="search" name="terme" class="rounded-lg p-2" placeholder="Tape un mot">
             </form>
         </div>
         <div class="flex p-6 items-center border-solid border-black border-2 bg-green-300 m-6 rounded-2xl">
         <h2 class="m-4 text-3xl font-bold">Ajouter un favori</h2>
             <a href="create.php" class="flex">
-                <img src="images/file-circle-plus-regular.svg" alt="icone d'ajout de favori" width="60px" class="border-solid border-black border-2 rounded-2xl p-2 bg-green-500">
+                <img src="images/file-circle-plus-regular.svg" alt="icone d'ajout de favori" width="60px" class="border-solid border-black border-2 rounded-2xl p-2 bg-green-500 hover:bg-green-600">
             </a>
         </div>
     </section>
@@ -103,13 +103,13 @@
                         <td class="border-solid border-2 border-black p-2.5 font-bold text-center text-lg"><?php echo $favori["date_creation"];?></td>
                         <td class="border-solid border-2 border-black p-2.5 font-bold text-lg"><?php echo "<a href='".$favori['url']."' target='about_blank'class='text-teal-500 underline'>".$favori['url']."</a>";?></td>
                         <td class="border-solid border-2 border-black p-2.5 text-center">
-                            <button type="submit" name="see" value="see"><a href="seeFavori.php?id=<?php echo $favori["id_fav"]?>" target='_blank'><img src="images/eye-regular.svg" alt="see_icon" width="35px" class="bg-violet-400 rounded-lg p-1"/></a></button>
+                            <a href="seeFavori.php?id=<?php echo $favori["id_fav"]?>" target='_blank' class="flex justify-center"><img src="images/eye-regular.svg" alt="see_icon" width="35px" class="bg-violet-400 hover:bg-violet-600 rounded-lg p-1"/></a>
                         </td>
                         <td class="border-solid border-2 border-black p-2.5 text-center">
                             <div class="flex justify-center items-center">
-                                <?php echo "<a href='edit.php?id=".$favori["id_fav"]."'><img src='images/pen-to-square-regular.svg' alt='edit_icon' width='35px' class='bg-yellow-300 rounded-lg p-1'/></a>";
+                                <?php echo "<a href='edit.php?id=".$favori["id_fav"]."'><img src='images/pen-to-square-regular.svg' alt='edit_icon' width='35px' class='bg-yellow-300 hover:bg-yellow-500 rounded-lg p-1'/></a>";
                                     ?>
-                                <?php echo "<a href='delete.php?id_del=".$favori['id_fav']."' class='ml-2'><img src='images/trash-can-regular.svg' alt='delete_icon' width='32px' class='bg-red-500 rounded-lg p-1'/></a>";
+                                <?php echo "<a href='delete.php?id_del=".$favori['id_fav']."' class='ml-2'><img src='images/trash-can-regular.svg' alt='delete_icon' width='32px' class='bg-red-500 hover:bg-red-700 rounded-lg p-1'/></a>";
                                     ?>
                             </div>
                         </td>

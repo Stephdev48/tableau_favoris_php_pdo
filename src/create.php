@@ -12,7 +12,7 @@
     $domaines = $result_dom->fetchAll(PDO::FETCH_ASSOC);
 
 
-    ?>
+?>
 
 
 
@@ -66,29 +66,29 @@
 
 
 
+
+<!-- Envoi de la requête de création -->
 <?php
 
-if(count($_POST)>0){
-    $nom = htmlspecialchars($_POST['nom']);
-    $cat = htmlspecialchars($_POST['cat']);
-    $url = htmlspecialchars($_POST['url']);
-    $dom = htmlspecialchars($_POST['dom']);
+    if(count($_POST)>0){
+        $nom = htmlspecialchars($_POST['nom']);
+        $cat = htmlspecialchars($_POST['cat']);
+        $url = htmlspecialchars($_POST['url']);
+        $dom = htmlspecialchars($_POST['dom']);
 
-    // echo $nom." ".$cat." ".$url." ".$dom;
-
-
-    $creer_favori = ("INSERT INTO favori (libelle, date_creation, url, id_dom)  VALUES(:nom, NOW(), :url, :dom)");
-    $arrayParam= array(':nom' => $nom, ':url' => $url, ':dom' => $dom);
-    $result_fav = $pdo->prepare($creer_favori);
-    $result_fav->execute($arrayParam);
-}
-    ?>
+        // echo $nom." ".$cat." ".$url." ".$dom;
 
 
+        $creer_favori = ("INSERT INTO favori (libelle, date_creation, url, id_dom)  VALUES(:nom, NOW(), :url, :dom)");
+        $arrayParam= array(':nom' => $nom, ':url' => $url, ':dom' => $dom);
+        $result_fav = $pdo->prepare($creer_favori);
+        $result_fav->execute($arrayParam);
+    }
+?>
 
 
 
 <!-- Inclusion footer -->
 <?php
     include("footer.php");
-    ?>
+?>

@@ -24,7 +24,7 @@
 
 <!-- Affichage résultat de la recherche -->
 <fieldset class="flex justify-center p-10 items-center border-solid border-black border-2 bg-indigo-300 m-20 rounded-2xl">
-    <legend class="text-3xl font-bold bg-slate-400 p-3 rounded-lg border-solid border-black border-2">Résultat de la recherche</legend>
+    <legend class="text-3xl font-bold bg-slate-300 p-3 rounded-lg border-solid border-black border-2">Résultat de la recherche</legend>
     <table class="flex justify-center m-10">
             <tr class=" bg-slate-400/60">
                 <th class="border-solid border-2 border-black p-2.5 text-2xl">ID Favori</th>
