@@ -71,6 +71,7 @@
                     <input type="search" name="terme" class="rounded-lg p-2" placeholder="Tape UN mot puis entrée">
             </form>
         </div>
+        <!-- Ajout favori -->
         <div class="flex p-6 items-center border-solid border-black border-2 bg-green-300 m-6 rounded-2xl">
         <h2 class="m-4 text-3xl font-bold">Ajouter un favori</h2>
             <a href="create.php" class="flex">

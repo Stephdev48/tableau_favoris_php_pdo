@@ -99,17 +99,21 @@
 <?php
 
     if(count($_POST)>0){
-        
+
         //Récupération des champs du formulaire
         $nom = htmlspecialchars($_POST['nom']);
-        $array_cat = ($_POST['cat']);
         $url = htmlspecialchars($_POST['url']);
         $dom = htmlspecialchars($_POST['dom']);
+        $id_fav = $_GET['id'];
 
 
+        //Modification de la ligne dans la table favori
+        $modifier_favori = ("UPDATE favori SET libelle=':nom', url=':url', id_dom=':dom' WHERE id_fav=:id_fav;");
+        $arrayParam = array(':nom' => $nom, ':url' => $url, ':dom' => $dom, ':id_fav' => $id_fav);
+        $result_final_fav = $pdo->prepare($modifier_favori); 
+        $result_final_fav->execute($arrayParam);
 
-
-
+        header('Location: index.php?modif='.$_GET[id]);
     }
 ?>
 
