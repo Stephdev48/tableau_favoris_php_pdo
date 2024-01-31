@@ -548,6 +548,10 @@ video {
   margin: 2.5rem;
 }
 
+.m-16 {
+  margin: 4rem;
+}
+
 .m-2 {
   margin: 0.5rem;
 }
@@ -568,8 +572,9 @@ video {
   margin: 1.5rem;
 }
 
-.m-1 {
-  margin: 0.25rem;
+.mx-60 {
+  margin-left: 15rem;
+  margin-right: 15rem;
 }
 
 .mb-5 {
@@ -703,6 +708,11 @@ video {
   background-color: rgb(253 224 71 / var(--tw-bg-opacity));
 }
 
+.bg-teal-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(45 212 191 / var(--tw-bg-opacity));
+}
+
 .p-1 {
   padding: 0.25rem;
 }
@@ -776,14 +786,14 @@ video {
   line-height: 1.75rem;
 }
 
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .font-bold {

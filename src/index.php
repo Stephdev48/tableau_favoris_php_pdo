@@ -43,7 +43,7 @@
                 <form action="" method="GET">
                     <label class="text-3xl pr-5 font-bold">Catégories</label>
                     <select name="categories" class="text-xl border-solid border-2 border-black rounded-xl p-2 cursor-pointer  hover:bg-slate-100 hover:shadow-xl">
-                        <option value="">-- Choisir une catégorie --</option>
+                        <option value="">-- Choix de la catégorie --</option>
                         <?php 
                             foreach($categories as $categorie){
                             ?>
@@ -54,7 +54,7 @@
                     </select>
                     <label class="text-3xl pr-5 font-bold ml-20">Domaines</label>
                     <select name="domaines" class="text-xl border-solid border-2 border-black rounded-xl p-2 cursor-pointer  hover:bg-slate-100 hover:shadow-xl">
-                        <option value="">-- Choisir un domaine --</option>
+                        <option value="">-- Choix du domaine --</option>
                         <?php 
                             foreach($domaines as $domaine){
                             ?>
@@ -68,7 +68,7 @@
             </div>
             <form action="search.php" method="GET" class="flex pt-10 pb-2 text-xl font-semibold items-center">
                     <h3 class="mr-8">Recherche par mot-clé</h3>
-                    <input type="search" name="terme" class="rounded-lg p-2" placeholder="Tape un mot">
+                    <input type="search" name="terme" class="rounded-lg p-2" placeholder="Tape UN mot puis entrée">
             </form>
         </div>
         <div class="flex p-6 items-center border-solid border-black border-2 bg-green-300 m-6 rounded-2xl">
@@ -107,7 +107,7 @@
                         </td>
                         <td class="border-solid border-2 border-black p-2.5 text-center">
                             <div class="flex justify-center items-center">
-                                <?php echo "<a href='edit.php?id=".$favori["id_fav"]."'><img src='images/pen-to-square-regular.svg' alt='edit_icon' width='35px' class='bg-yellow-300 hover:bg-yellow-500 rounded-lg p-1'/></a>";
+                                <?php echo "<a href='update.php?id=".$favori["id_fav"]."'><img src='images/pen-to-square-regular.svg' alt='edit_icon' width='35px' class='bg-yellow-300 hover:bg-yellow-500 rounded-lg p-1'/></a>";
                                     ?>
                                 <?php echo "<a href='delete.php?id_del=".$favori['id_fav']."' class='ml-2'><img src='images/trash-can-regular.svg' alt='delete_icon' width='32px' class='bg-red-500 hover:bg-red-700 rounded-lg p-1'/></a>";
                                     ?>

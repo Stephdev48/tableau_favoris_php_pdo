@@ -1,70 +1,50 @@
-<!-- Envoi de la requête de création -->
-<?php
-
-    include("pdo.php");
-    if(count($_POST)>0){
-
-        //Récupération des champs du formulaire
-        $nom = htmlspecialchars($_POST['nom']);
-        $array_cat = ($_POST['cat']);
-        $url = htmlspecialchars($_POST['url']);
-        $dom = htmlspecialchars($_POST['dom']);
-
-
-        //Insertion de la ligne dans la table favori
-        $creer_favori = ("INSERT INTO favori (libelle, date_creation, url, id_dom)  VALUES(:nom, NOW(), :url, :dom)");
-        $arrayParam = array(':nom' => $nom, ':url' => $url, ':dom' => $dom);
-        $result_fav = $pdo->prepare($creer_favori);
-        $result_fav->execute($arrayParam);
-
-
-        //Récupération du dernier id_fav créé
-        $stmt = $pdo->query("SELECT LAST_INSERT_ID()");
-        $last_id_fav = $stmt->fetchColumn();
-
-
-        //Insertion des id_cat dans cat_fav
-        
-        foreach($array_cat as $cat){
-        $ajout_id_cat = ("INSERT INTO cat_fav (id_fav, id_cat) VALUES (:id_favori, :cat);");
-        $arrayParam1 = array(':id_favori'=>$last_id_fav, ':cat'=>$cat);
-        $result_id_fav = $pdo->prepare($ajout_id_cat);
-        $result_id_fav->execute($arrayParam1);
-        }
-
-        header('Location: index.php?create='.$last_id_fav );
-
-    }
-?>
-
-
-<!-- Inclusion header -->
+<!-- Inclusion header et fichier pdo et récupération du favoris à modifier-->
 <?php
 
     include("header.php");
-    
-    // Récupération des catégories :
+    include("pdo.php");
+
+
+    //Récupération des données du favoris à modifier :
+    $modif_fav = $pdo->query("SELECT * FROM favori WHERE id_fav=$_GET[id]");
+    $fav_a_modif = $modif_fav->fetch(PDO::FETCH_ASSOC);
+    echo "<pre>";
+    var_dump($fav_a_modif);
+    echo "</pre>";
+
+
+    // Récupération des catégories du favori à modifier :
+    $recup_cat = $pdo->query("SELECT * FROM cat_fav WHERE id_fav=$_GET[id]");
+    $cat_cat = $recup_cat->fetchAll(PDO::FETCH_ASSOC);
+    echo "<pre>";
+    var_dump($cat_cat);
+    echo "</pre>";
+
+
+    // Récupération des catégories pour le menu déroulant :
     $result_cat = $pdo->query("SELECT * FROM categorie");
     $categories = $result_cat->fetchAll(PDO::FETCH_ASSOC);
 
-    // Récupération des domaines :
+
+    // Récupération des domaines pour le menu déroulant :
     $result_dom = $pdo->query("SELECT * FROM domaine");
     $domaines = $result_dom->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
 
-<!-- Formulaire de saisie du nouveau favori -->
-<section class="flex-col justify-center border-solid border-black border-2 bg-green-400 m-10 mx-60 rounded-2xl p-16">
-    <h2 class="text-center text-4xl m-4 font-bold">Nouveau favori</h2>
-    <h3 class="text-center text-2xl">Champs à renseigner :</h2>
+
+
+<!-- Formulaire de modification du favori -->
+<section class="flex-col justify-center border-solid border-black border-2 bg-teal-400 m-10 mx-60 rounded-2xl p-16">
+    <h2 class="text-center text-4xl m-4 font-bold">Modifier favori</h2>
     <form action="" method="post" class="text-center">
-        <ul class="flex-col m-20">
+        <ul class="flex-col m-16">
 
             <!--Champ nom-->
             <li class="flex-col m-2">
                 <label for="nom" class="flex text-xl justify-center p-2">Nom du favori</label>
-                <input type="text" id="nom" name="nom" class="rounded-md p-2" required size="32"></input>
+                <input type="text" id="nom" name="nom" class="rounded-md p-2" required size="32" value="<?php echo $fav_a_modif['libelle']?>"/>
             </li>
 
             <!--Menu catégories-->
@@ -101,16 +81,38 @@
             <!--Champ URL-->
             <li class="flex-col m-2">
                 <label class="flex text-xl justify-center p-2">Adresse URL</label>
-                <input type="url" id="url" name="url" class="rounded-md p-2" required size="32"></input>
+                <input type="url" id="url" name="url" class="rounded-md p-2" required size="55" value="<?php echo $fav_a_modif['url']?>"/>
             </li>
         </ul>
 
-            <!--Bouton d'envoi du formulaire-->
+            <!--Bouton d'envoi de la mise à jour-->
         <div class="flex justify-center m-4">
-            <button type="submit" value="envoyer" class="bg-red-500 text-2xl font-bold rounded-lg p-2 border-solid border-black border-2 mb-5">Envoyer</button>
+            <button type="submit" value="envoyer" class="bg-red-500 text-2xl font-bold rounded-lg p-2 border-solid border-black border-2 mb-5">Mettre à jour</button>
         </div>
     </form>
 </section>
+
+
+
+
+<!-- Envoi de la requête de modification -->
+<?php
+
+    if(count($_POST)>0){
+        
+        //Récupération des champs du formulaire
+        $nom = htmlspecialchars($_POST['nom']);
+        $array_cat = ($_POST['cat']);
+        $url = htmlspecialchars($_POST['url']);
+        $dom = htmlspecialchars($_POST['dom']);
+
+
+
+
+
+    }
+?>
+
 
 
 <!-- Inclusion footer -->
