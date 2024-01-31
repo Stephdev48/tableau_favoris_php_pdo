@@ -10,14 +10,6 @@
     $req_search = ("SELECT * FROM favori WHERE libelle LIKE '%".$_GET['terme']."%';");
     $search = $pdo->query($req_search);
     $result_search = $search->fetchAll(PDO::FETCH_ASSOC);
-
-    // echo "<pre>";
-    // print_r($result_search);
-    // echo "</pre>";
-    // $keys = array_keys($result_search);
-    // echo "<pre>";
-    // print_r($keys);
-    // echo "</pre>";
     ?>
 
 
