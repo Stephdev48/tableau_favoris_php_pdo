@@ -41,7 +41,7 @@
 
         <!-- Zone de recherche et filtre -->
         <fieldset class="flex justify-center flex-col p-10 items-center border-solid border-black border-2 bg-stone-300 m-6 rounded-2xl">
-            <legend class="text-2xl font-bold bg-slate-300 p-3 rounded-lg border-solid border-black border-2">Recherche</legend>
+            <legend class="text-2xl text-white font-bold bg-stone-800 p-3 rounded-lg border-solid border-black border-2">Recherche</legend>
             <div class="flex items-center">
                 <form action="" method="GET">
                     <label class="text-2xl pr-5 font-bold">Catégories</label>
@@ -77,9 +77,9 @@
 
         <!-- Ajout favori -->
         <fieldset class="flex items-center justify-center p-6 border-solid border-black border-2 bg-stone-300 m-6 rounded-2xl">
-            <legend class="text-2xl font-bold bg-slate-300 p-3 rounded-lg border-solid border-black border-2">Nouveau favori</legend>
+            <legend class="text-2xl text-white font-bold bg-stone-800 p-3 rounded-lg border-solid border-black border-2">Nouveau favori</legend>
             <a href="create.php" class="flex">
-                <img src="images/file-circle-plus-regular.svg" alt="icone d'ajout de favori" width="60px" class="border-solid border-black border-2 rounded-2xl p-2 bg-lime-500 hover:bg-lime-600">
+                <img src="images/file-circle-plus-regular.svg" alt="icone d'ajout de favori" width="80px" class="border-solid border-black border-2 rounded-2xl p-2 bg-lime-500 hover:bg-lime-600">
             </a>
         </fieldset>
         
