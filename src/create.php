@@ -54,7 +54,7 @@
 
 
 <!-- Formulaire de saisie du nouveau favori -->
-<section class="flex-col justify-center border-solid border-black border-2 bg-green-400 m-10 mx-60 rounded-2xl p-16">
+<section class="flex-col justify-center border-solid border-black border-2 bg-stone-400 m-10 mx-60 rounded-2xl p-16">
     <h2 class="text-center text-4xl m-4 font-bold">Nouveau favori</h2>
     <h3 class="text-center text-2xl">Champs à renseigner :</h2>
     <form action="" method="post" class="text-center">

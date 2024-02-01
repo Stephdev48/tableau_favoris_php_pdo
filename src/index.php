@@ -38,7 +38,9 @@
 
 <!-- Sélecteur de catégorie et de domaine et champ de recherche -->
     <section class="flex justify-center">
-        <div class="flex justify-center flex-col p-10 items-center border-solid border-black border-2 bg-indigo-300 m-6 rounded-2xl">
+
+                <!-- Zone de recherche et filtre -->
+        <div class="flex justify-center flex-col p-10 items-center border-solid border-black border-2 bg-stone-300 m-6 rounded-2xl">
             <div class="flex items-center">
                 <form action="" method="GET">
                     <label class="text-3xl pr-5 font-bold">Catégories</label>
@@ -73,12 +75,13 @@
         </div>
 
         <!-- Ajout favori -->
-        <div class="flex p-6 items-center border-solid border-black border-2 bg-green-300 m-6 rounded-2xl">
-        <h2 class="m-4 text-3xl font-bold">Ajouter un favori</h2>
-            <a href="create.php" class="flex">
+        <div class="p-6 items-center border-solid border-black border-2 bg-stone-300 m-6 rounded-2xl">
+            <h2 class="m-4 mt-4 text-3xl font-bold">Ajouter un favori</h2>
+            <a href="create.php" class="flex justify-center mt-10">
                 <img src="images/file-circle-plus-regular.svg" alt="icone d'ajout de favori" width="60px" class="border-solid border-black border-2 rounded-2xl p-2 bg-green-500 hover:bg-green-600">
             </a>
         </div>
+        
     </section>
 
 
@@ -89,7 +92,7 @@
             <tr class=" bg-slate-400/60">
                 <th class="border-solid border-2 border-black p-2.5 text-2xl">ID Favori</th> 
                 <th class="border-solid border-2 border-black p-2.5 text-2xl">Libellé</th>
-                <th class="border-solid border-2 border-black p-2.5 text-2xl">Date ajout</th>
+                <th class="border-solid border-2 border-black p-2.5 text-2xl">Date d'ajout</th>
                 <th class="border-solid border-2 border-black p-2.5 text-2xl">Lien</th>
                 <th class="border-solid border-2 border-black p-2.5 text-2xl">Afficher</th>
                 <th class="border-solid border-2 border-black p-2.5 text-2xl">Options</th>
@@ -118,7 +121,6 @@
                 }
             ?>
         </table>
-
     </section>
 
 
