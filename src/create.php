@@ -106,7 +106,7 @@
 
             <!--Bouton d'envoi du formulaire-->
         <div class="flex justify-center m-4">
-            <button type="submit" value="envoyer" class="bg-red-500 text-2xl font-bold rounded-lg p-2 border-solid border-black border-2 mb-5">Envoyer</button>
+            <button type="submit" value="envoyer" class="bg-stone-700 text-white text-2xl font-bold rounded-lg p-2 border-solid border-black border-2 mb-5">Envoyer</button>
         </div>
     </form>
 </section>
