@@ -30,11 +30,11 @@
 <fieldset class="flex justify-center p-8 items-center border-solid border-black border-2 bg-indigo-300 m-20 rounded-2xl">
     <legend class="text-2xl font-bold bg-slate-300 p-3 rounded-lg border-solid border-black border-2">Détails du favori</legend>
     <h2 class="ml-14 text-lg font-bold"><?php print_r($single_fav["libelle"]);?></h2>
-    <p class="ml-14 mr-14 text-lg font-bold">Favori créé le : <?php print_r($single_fav["date_creation"]);?></p>
+    <p class="ml-14 mr-14 text-lg font-bold">Favori créé le : <span class="text-base font-medium"><?php print_r($single_fav["date_creation"]);?></span></p>
     <a href="<?php echo $single_fav['url']?>" target='about_blank'class='text-blue-600 underline ml-14 mr-14 text-xl font-bold'><?php echo $single_fav['url']?></a>
     <div class="flex ml-14 mr-14 text-lg font-bold">
         <p class="underline underline-offset-4">Catégories associées</p>
-        <div class="italic text-center flex items-center">
+        <div class="ml-2 italic text-center flex items-center">
             <?php 
                 foreach($cat_list as $categ){
                     echo "<span>".$categ['id_cat'].", </span>";

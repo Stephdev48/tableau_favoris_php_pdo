@@ -39,7 +39,7 @@
 <!-- Sélecteur de catégorie et de domaine et champ de recherche -->
     <section class="flex justify-center">
 
-                <!-- Zone de recherche et filtre -->
+        <!-- Zone de recherche et filtre -->
         <div class="flex justify-center flex-col p-10 items-center border-solid border-black border-2 bg-stone-300 m-6 rounded-2xl">
             <div class="flex items-center">
                 <form action="" method="GET">
@@ -65,7 +65,7 @@
                             }
                         ?>
                     </select>
-                    <input type="submit" name="filtre" value="Filtrer" class="text-xl bg-lime-400 p-3 rounded-xl border-solid border-black border-2 ml-20 cursor-pointer hover:bg-lime-500">
+                    <input type="submit" name="filtre" value="Filtrer" class="text-xl bg-sky-300 p-3 rounded-xl border-solid border-black border-2 ml-20 cursor-pointer hover:bg-sky-400">
                 </form>
             </div>
             <form action="search.php" method="GET" class="flex pt-10 pb-2 text-xl font-semibold items-center">
@@ -78,7 +78,7 @@
         <div class="p-6 items-center border-solid border-black border-2 bg-stone-300 m-6 rounded-2xl">
             <h2 class="m-4 mt-4 text-3xl font-bold">Ajouter un favori</h2>
             <a href="create.php" class="flex justify-center mt-10">
-                <img src="images/file-circle-plus-regular.svg" alt="icone d'ajout de favori" width="60px" class="border-solid border-black border-2 rounded-2xl p-2 bg-green-500 hover:bg-green-600">
+                <img src="images/file-circle-plus-regular.svg" alt="icone d'ajout de favori" width="60px" class="border-solid border-black border-2 rounded-2xl p-2 bg-lime-500 hover:bg-lime-600">
             </a>
         </div>
         
@@ -89,7 +89,7 @@
 <!-- Tableau -->
     <section>
         <table class="flex justify-center m-10">
-            <tr class=" bg-slate-400/60">
+            <tr class=" bg-stone-400">
                 <th class="border-solid border-2 border-black p-2.5 text-2xl">ID Favori</th> 
                 <th class="border-solid border-2 border-black p-2.5 text-2xl">Libellé</th>
                 <th class="border-solid border-2 border-black p-2.5 text-2xl">Date d'ajout</th>
@@ -106,7 +106,7 @@
                         <td class="border-solid border-2 border-black p-2.5 font-bold text-center text-lg"><?php echo $favori["date_creation"];?></td>
                         <td class="border-solid border-2 border-black p-2.5 font-bold text-lg"><?php echo "<a href='".$favori['url']."' target='about_blank'class='text-teal-500 underline'>".$favori['url']."</a>";?></td>
                         <td class="border-solid border-2 border-black p-2.5 text-center">
-                            <a href="seeFavori.php?id=<?php echo $favori["id_fav"]?>" target='_blank' class="flex justify-center"><img src="images/eye-regular.svg" alt="see_icon" width="35px" class="bg-violet-400 hover:bg-violet-600 rounded-lg p-1"/></a>
+                            <a href="seeFavori.php?id=<?php echo $favori["id_fav"]?>" target='_blank' class="flex justify-center"><img src="images/eye-regular.svg" alt="see_icon" width="35px" class="bg-violet-400 hover:bg-violet-500 rounded-lg p-1"/></a>
                         </td>
                         <td class="border-solid border-2 border-black p-2.5 text-center">
                             <div class="flex justify-center items-center">

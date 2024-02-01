@@ -73,7 +73,7 @@
 
 
 <!-- Formulaire de modification du favori -->
-<section class="flex-col justify-center border-solid border-black border-2 bg-teal-400 m-10 mx-60 rounded-2xl p-16">
+<section class="flex-col justify-center border-solid border-black border-2 bg-stone-300 m-10 mx-60 rounded-2xl p-16">
     <h2 class="text-center text-4xl m-4 font-bold">Modifier favori</h2>
     <form action="" method="post" class="text-center">
         <ul class="flex-col m-16">
@@ -124,7 +124,7 @@
 
             <!--Bouton d'envoi de la mise à jour-->
         <div class="flex justify-center m-4">
-            <button type="submit" value="envoyer" class="bg-red-500 text-2xl font-bold rounded-lg p-2 border-solid border-black border-2 mb-5">Mettre à jour</button>
+            <button type="submit" value="envoyer" class="bg-neutral-500 text-2xl font-bold rounded-lg p-2 border-solid border-black border-2 mb-5">Mettre à jour</button>
         </div>
     </form>
 </section>
