@@ -91,7 +91,6 @@
     <section>
         <table class="flex justify-center m-10">
             <tr class=" bg-stone-400">
-                <th class="border-solid border-2 border-black p-2.5 text-2xl">ID Favori</th> 
                 <th class="border-solid border-2 border-black p-2.5 text-2xl">Libellé</th>
                 <th class="border-solid border-2 border-black p-2.5 text-2xl">Date d'ajout</th>
                 <th class="border-solid border-2 border-black p-2.5 text-2xl">Lien</th>
@@ -102,7 +101,6 @@
                 foreach($favoris as $favori){
                     ?>
                     <tr class="hover:bg-slate-300 odd:bg-slate-100 even:bg-slate-200">
-                        <td class="border-solid border-2 border-black p-2.5 font-bold text-center text-lg"><?php echo $favori["id_fav"];?></td>
                         <td class="border-solid border-2 border-black p-2.5 font-bold text-lg"><?php echo $favori["libelle"];?></td>
                         <td class="border-solid border-2 border-black p-2.5 font-bold text-center text-lg"><?php echo $favori["date_creation"];?></td>
                         <td class="border-solid border-2 border-black p-2.5 font-bold text-lg"><?php echo "<a href='".$favori['url']."' target='about_blank'class='text-teal-500 underline'>".$favori['url']."</a>";?></td>

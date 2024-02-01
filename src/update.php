@@ -124,7 +124,7 @@
 
             <!--Bouton d'envoi de la mise à jour-->
         <div class="flex justify-center m-4">
-            <button type="submit" value="envoyer" class="bg-neutral-500 text-2xl font-bold rounded-lg p-2 border-solid border-black border-2 mb-5">Mettre à jour</button>
+            <button type="submit" value="envoyer" class="bg-neutral-400 text-2xl font-bold rounded-lg p-2 border-solid border-black border-2 mb-5">Mettre à jour</button>
         </div>
     </form>
 </section>
