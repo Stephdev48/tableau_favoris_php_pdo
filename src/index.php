@@ -101,9 +101,9 @@
                 foreach($favoris as $favori){
                     ?>
                     <tr class="hover:bg-slate-300 odd:bg-slate-100 even:bg-slate-200">
-                        <td class="border-solid border-2 border-black p-2.5 font-bold text-lg"><?php echo $favori["libelle"];?></td>
+                        <td class="border-solid border-2 border-black p-2.5 font-bold text-lg"><span class="ml-4"><?php echo $favori["libelle"];?></span></td>
                         <td class="border-solid border-2 border-black p-2.5 font-bold text-center text-lg"><?php echo $favori["date_creation"];?></td>
-                        <td class="border-solid border-2 border-black p-2.5 font-bold text-lg"><?php echo "<a href='".$favori['url']."' target='about_blank'class='text-teal-500 underline'>".$favori['url']."</a>";?></td>
+                        <td class="border-solid border-2 border-black p-2.5 font-bold text-lg"><span class="ml-4"><?php echo "<a href='".$favori['url']."' target='about_blank'class='text-teal-500 underline'>".$favori['url']."</a>";?></span></td>
                         <td class="border-solid border-2 border-black p-2.5 text-center">
                             <a href="seeFavori.php?id=<?php echo $favori["id_fav"]?>" target='_blank' class="flex justify-center"><img src="images/eye-regular.svg" alt="see_icon" width="35px" class="bg-violet-400 hover:bg-violet-500 rounded-lg p-1"/></a>
                         </td>
