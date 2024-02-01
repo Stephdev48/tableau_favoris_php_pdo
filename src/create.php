@@ -26,10 +26,10 @@
         //Insertion des id_cat dans cat_fav
         
         foreach($array_cat as $cat){
-        $ajout_id_cat = ("INSERT INTO cat_fav (id_fav, id_cat) VALUES (:id_favori, :cat);");
-        $arrayParam1 = array(':id_favori'=>$last_id_fav, ':cat'=>$cat);
-        $result_id_fav = $pdo->prepare($ajout_id_cat);
-        $result_id_fav->execute($arrayParam1);
+            $ajout_id_cat = ("INSERT INTO cat_fav (id_fav, id_cat) VALUES (:id_favori, :cat);");
+            $arrayParam1 = array(':id_favori'=>$last_id_fav, ':cat'=>$cat);
+            $result_id_fav = $pdo->prepare($ajout_id_cat);
+            $result_id_fav->execute($arrayParam1);
         }
 
         header('Location: index.php?create='.$last_id_fav );

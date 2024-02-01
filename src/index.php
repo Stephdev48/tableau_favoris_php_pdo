@@ -68,9 +68,10 @@
             </div>
             <form action="search.php" method="GET" class="flex pt-10 pb-2 text-xl font-semibold items-center">
                     <h3 class="mr-8">Recherche par mot-clé</h3>
-                    <input type="search" name="terme" class="rounded-lg p-2" placeholder="Tape UN mot puis entrée">
+                    <input type="search" name="terme" class="rounded-lg p-2" placeholder="Tape UN mot puis entrée" size="30">
             </form>
         </div>
+
         <!-- Ajout favori -->
         <div class="flex p-6 items-center border-solid border-black border-2 bg-green-300 m-6 rounded-2xl">
         <h2 class="m-4 text-3xl font-bold">Ajouter un favori</h2>

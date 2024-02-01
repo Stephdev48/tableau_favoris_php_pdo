@@ -8,17 +8,17 @@
     //Récupération des données du favoris à modifier :
     $modif_fav = $pdo->query("SELECT * FROM favori WHERE id_fav=$_GET[id]");
     $fav_a_modif = $modif_fav->fetch(PDO::FETCH_ASSOC);
-    echo "<pre>";
-    var_dump($fav_a_modif);
-    echo "</pre>";
+    // echo "<pre class='ml-10'>";
+    // var_dump($fav_a_modif);
+    // echo "</pre>";
 
 
     // Récupération des catégories du favori à modifier :
     $recup_cat = $pdo->query("SELECT * FROM cat_fav WHERE id_fav=$_GET[id]");
     $cat_cat = $recup_cat->fetchAll(PDO::FETCH_ASSOC);
-    echo "<pre>";
-    var_dump($cat_cat);
-    echo "</pre>";
+    // echo "<br><br><br><pre class='ml-10'>";
+    // var_dump($cat_cat);
+    // echo "</pre>";
 
 
     // Récupération des catégories pour le menu déroulant :
@@ -102,19 +102,20 @@
 
         //Récupération des champs du formulaire
         $nom = htmlspecialchars($_POST['nom']);
-        $url = htmlspecialchars($_POST['url']);
         $dom = htmlspecialchars($_POST['dom']);
-        $id_fav = $_GET['id'];
+        $url = htmlspecialchars($_POST['url']);
+
 
 
         //Modification de la ligne dans la table favori
-        $modifier_favori = ("UPDATE favori SET libelle=':nom', url=':url', id_dom=':dom' WHERE id_fav=:id_fav;");
-        $arrayParam = array(':nom' => $nom, ':url' => $url, ':dom' => $dom, ':id_fav' => $id_fav);
+        $modifier_favori = ("UPDATE favori SET libelle=:nom, id_dom=:dom, url=:url WHERE id_fav=:id_fav;");
+        $arrayParam = array(':nom' => $nom, ':dom' => $dom, ':url' => $url, ':id_fav' => $_GET['id']);
         $result_final_fav = $pdo->prepare($modifier_favori); 
         $result_final_fav->execute($arrayParam);
 
-        header('Location: index.php?modif='.$_GET[id]);
+        header('Location: index.php?modif='.$_GET['id']);
     }
+
 ?>
 
 
