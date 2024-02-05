@@ -13,12 +13,10 @@ xampp
 ## reste à faire / peaufinage
 
 -responsive
--bouton filtre plante si pas d'entrée
+-bouton filtre plante si pas d'entrée dans le menu déroulant
 -trier favoris dans tableau asc dsc
--pagination à 10 favoris
--vérif' remplissage menu déroulant update.php
+-pagination à 10 favoris ( trop chaud...)
 -try catch aux requêtes, et pas seulement dans la requête PDO
--update.php : indiquer les catégories d'origine avant modification
 
 ## commandes pour Tailwind
 

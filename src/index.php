@@ -95,7 +95,7 @@
 
 
 
-<!-- Affichage nombre de favoris -->
+<!-- Affichage du nombre de favoris -->
     <div class="w-1/4 flex justify-center">
         <?php
             echo "<p class='text-2xl font-bold flex items-center justify-center p-6 border-solid border-black border-2 bg-stone-300 rounded-2xl mt-20'>"."Tableau de&nbsp <i class='text-indigo-700'>".count($favoris)."</i>&nbspfavoris</p>";

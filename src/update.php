@@ -10,6 +10,10 @@
 
 
 
+        if ((!empty($_POST['cat']) && (!empty($_POST['dom'])))){
+        
+        
+        
         //Modification de la ligne dans la table favori
         $modifier_favori = ("UPDATE favori SET libelle=:nom, id_dom=:dom, url=:url WHERE id_fav=:id_fav;");
         $arrayParam = array(':nom' => $nom, ':dom' => $dom, ':url' => $url, ':id_fav' => $_GET['id']);
@@ -36,6 +40,9 @@
         //Redirection vers index.php
         header('Location: index.php?modif='.$_GET['id']);
 
+        }else{
+            echo "<script>alert('Catégories et domaine requis !')</script>";
+        }
     }
 ?>
 
@@ -55,7 +62,7 @@
 
     // Récupération des catégories du favori à modifier :
     $recup_cat = $pdo->query("SELECT * FROM cat_fav WHERE id_fav=$_GET[id]");
-    $cat_cat = $recup_cat->fetchAll(PDO::FETCH_ASSOC);
+    $cat_cat = $recup_cat->fetchAll(PDO::FETCH_ASSOC);    
 
 
     // Récupération des catégories pour le menu déroulant :
@@ -74,57 +81,63 @@
 
 <!-- Formulaire de modification du favori -->
 <section class="flex-col justify-center border-solid border-black border-2 bg-stone-300 m-10 mx-60 rounded-2xl p-16">
-    <h2 class="text-center text-4xl m-4 font-bold">Modifier favori</h2>
+    <h2 class="text-center text-5xl m-4 font-bold">Modifier favori</h2>
     <form action="" method="post" class="text-center">
         <ul class="flex-col m-16">
 
             <!--Champ nom-->
             <li class="flex-col m-2">
                 <label for="nom" class="flex text-xl justify-center p-2">Nom du favori</label>
-                <input type="text" id="nom" name="nom" class="rounded-md p-2" required size="32" value="<?php echo $fav_a_modif['libelle']?>"/>
+                <input type="text" id="nom" name="nom" class="rounded-md p-3" required size="50" value="<?php echo $fav_a_modif['libelle']?>"/>
             </li>
 
             <!--Menu catégories-->
             <li class="flex-col m-6">
                 <label class="flex items-center text-xl justify-center">Catégorie</label>
                 <span class="flex justify-center text-sm p-1">( Maintenir CTRL pour sélectionner plusieurs catégories )</span>
-                <select class="cursor-pointer hover:bg-slate-100 hover:shadow-xl rounded-lg p-2" id="cat" name="cat[]" multiple>
-                    <option value="">-- Choix des catégories --</option>
-                        <?php 
-                            foreach($categories as $categorie){
+                <div class="flex justify-center items-center m-2">
+                    <h3 class="mr-3 p-3 rounded-lg bg-white italic text-cyan-700 h-1/6">Catégories d'origine : <?php foreach($cat_cat as $cat_cat_bis){echo "<p>".$cat_cat_bis['id_cat']."</p>";}?></h3>
+                    <select class="cursor-pointer hover:bg-slate-100 hover:shadow-xl rounded-lg p-3" id="cat" name="cat[]" multiple>
+                        <option value="">-- Choix des catégories --</option>
+                            <?php 
+                                foreach($categories as $categorie){
+                                ?>
+                                <option value="<?php echo $categorie['id_cat']?>"><?php echo $categorie['id_cat']." &nbsp ".$categorie['nom_cat']?></option>
+                                <?php
+                                }
                             ?>
-                            <option value="<?php echo $categorie['id_cat']?>"><?php echo $categorie['nom_cat']?></option>
-                            <?php
-                            }
-                        ?>
-                </select>
+                    </select>
+                </div>
             </li>
 
             <!--Menu domaines-->
             <li class="flex-col m-6">
                 <label class="flex items-center text-xl justify-center p-2">Domaine</label>
-                <select id="dom" name="dom" class="cursor-pointer hover:bg-slate-100 hover:shadow-xl rounded-lg p-2">
-                    <option value="">-- Choix du domaine --</option>
-                    <?php 
-                        foreach($domaines as $domaine){
+                <div class="flex justify-center m-2">
+                    <h3 class="mr-3 p-3 rounded-lg italic bg-white text-cyan-700">Domaine d'origine : <?php echo $fav_a_modif['id_dom'];?></h3>
+                    <select id="dom" name="dom" class="cursor-pointer hover:bg-slate-100 hover:shadow-xl rounded-lg p-3">
+                        <option value="">-- Choix du domaine --</option>
+                        <?php 
+                            foreach($domaines as $domaine){
+                            ?>
+                            <option value="<?php echo $domaine['id_dom']?>"><?php echo $domaine['nom']?></option>
+                            <?php
+                            }
                         ?>
-                        <option value="<?php echo $domaine['id_dom']?>"><?php echo $domaine['nom']?></option>
-                        <?php
-                        }
-                    ?>
-                </select>
+                    </select>
+                </div>
             </li>
 
             <!--Champ URL-->
             <li class="flex-col m-2">
                 <label class="flex text-xl justify-center p-2">Adresse URL</label>
-                <input type="url" id="url" name="url" class="rounded-md p-2" required size="55" value="<?php echo $fav_a_modif['url']?>"/>
+                <input type="url" id="url" name="url" class="rounded-md p-3" required size="55" value="<?php echo $fav_a_modif['url']?>"/>
             </li>
         </ul>
 
             <!--Bouton d'envoi de la mise à jour-->
-        <div class="flex justify-center m-4">
-            <button type="submit" value="envoyer" class="bg-neutral-400 text-2xl font-bold rounded-lg p-2 border-solid border-black border-2 mb-5">Mettre à jour</button>
+        <div class="flex justify-center m-4">                   
+           <button type='submit' value='envoyer' class='bg-neutral-400 text-2xl font-bold rounded-lg p-2 border-solid border-black border-2 mb-5'>Mettre à jour</button>
         </div>
     </form>
 </section>
