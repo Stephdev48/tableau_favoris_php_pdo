@@ -29,25 +29,26 @@
             }
 
 
-            $resultat = $pdo->query($requestSql);     
-            $favoris = $resultat->fetchAll(PDO::FETCH_ASSOC);
+        $resultat = $pdo->query($requestSql);     
+        $favoris = $resultat->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
 
 
 <!-- Sélecteur de catégorie et de domaine et champ de recherche -->
-    <section class="flex justify-center">
+    <section class="flex">
 
         <!-- Zone de recherche et filtre -->
-        <fieldset class="flex justify-center flex-col p-10 items-center border-solid border-black border-2 bg-stone-300 m-6 rounded-2xl">
+        <fieldset class="flex-col p-10 items-center border-solid border-black border-2 bg-stone-300 m-4 rounded-2xl">
             <legend class="text-2xl text-white font-bold bg-stone-800 p-3 rounded-lg border-solid border-black border-2">Recherche</legend>
-            <div class="flex items-center">
-                <form action="" method="GET">
+            <div class="flex md:flex-row items-center">
+                <form action="" method="GET" class="flex-col">
 
                     <!-- Choix des catégories -->
-                    <label class="text-2xl pr-5 font-bold">Catégories</label>
-                    <select name="categories" class="text-xl border-solid border-2 border-black rounded-xl p-2 cursor-pointer  hover:bg-slate-100 hover:shadow-xl">
+                    <div class="m-2 flex-col text-center">
+                        <label class="text-2xl pr-5 font-bold">Catégories</label>
+                        <select name="categories" class="text-xl border-solid border-2 border-black rounded-xl p-2 cursor-pointer  hover:bg-slate-100 hover:shadow-xl">
                         <option value="">-- Choix de la catégorie --</option>
                         <?php 
                             foreach($categories as $categorie){
@@ -56,30 +57,37 @@
                             <?php
                             }
                         ?>
-                    </select>
+                        </select>
+                    </div>
 
                     <!-- Choix du domaine -->
-                    <label class="text-2xl pr-5 font-bold ml-20">Domaines</label>
-                    <select name="domaines" class="text-xl border-solid border-2 border-black rounded-xl p-2 cursor-pointer  hover:bg-slate-100 hover:shadow-xl">
-                        <option value="">-- Choix du domaine --</option>
-                        <?php 
-                            foreach($domaines as $domaine){
+                    <div class="m-2 flex-col text-center">
+                        <label class="text-2xl pr-5 font-bold">Domaines</label>
+                        <select name="domaines" class="text-xl border-solid border-2 border-black rounded-xl p-2 cursor-pointer  hover:bg-slate-100 hover:shadow-xl">
+                            <option value="">-- Choix du domaine --</option>
+                            <?php 
+                                foreach($domaines as $domaine){
+                                ?>
+                                <option value="<?php echo $domaine['id_dom']?>"><?php echo $domaine['nom']?></option>
+                                <?php
+                                }
                             ?>
-                            <option value="<?php echo $domaine['id_dom']?>"><?php echo $domaine['nom']?></option>
-                            <?php
-                            }
-                        ?>
-                    </select>
+                        </select>
+                    </div>
 
                     <!-- Bouton filtre -->
-                    <input type="submit" name="filtre" value="Filtrer" class="text-xl font-semibold bg-blue-400 p-3 rounded-xl border-solid border-black border-2 ml-20 cursor-pointer hover:bg-blue-500">
+                    <div class="flex justify-center">
+                        <input type="submit" name="filtre" value="Filtrer" class="m-2 text-xl font-semibold bg-blue-400 p-3 rounded-xl border-solid border-black border-2 cursor-pointer hover:bg-blue-500">
+                    </div>
                 </form>
             </div>
 
                 <!-- Champ de recherche -->
-            <form action="search.php" method="GET" class="flex pt-10 pb-2 text-xl font-semibold items-center">
-                    <h3 class="mr-8">Recherche par mot-clé</h3>
-                    <input type="search" name="terme" class="rounded-lg p-2" placeholder="Tape UN mot puis entrée" size="30">
+            <form action="search.php" method="GET" class="flex-col justify-center pt-10 pb-2 text-xl font-semibold">
+                    <h3 class="m-2 text-center">Recherche par mot-clé</h3>
+                    <div class="flex justify-center">
+                        <input type="search" name="terme" class="rounded-lg p-2" placeholder="Tape UN mot puis entrée" size="18">
+                    </div>
             </form>
         </fieldset>
 
@@ -96,10 +104,8 @@
 
 
 <!-- Affichage du nombre de favoris -->
-    <div class="w-1/4 flex justify-center">
-        <?php
-            echo "<p class='text-2xl font-bold flex items-center justify-center p-6 border-solid border-black border-2 bg-stone-300 rounded-2xl mt-20'>"."Tableau de&nbsp <i class='text-indigo-700'>".count($favoris)."</i>&nbspfavoris</p>";
-        ?>
+    <div class="flex justify-center">
+        <p class="text-2xl font-bold p-6 border-solid border-black border-2 bg-stone-300 rounded-2xl mt-20">Tableau de <i class='text-indigo-700'><?php echo count($favoris);?></i> favoris</p>
     </div>                       
 
 

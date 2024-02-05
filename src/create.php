@@ -54,7 +54,7 @@
 
 
 <!-- Formulaire de saisie du nouveau favori -->
-<section class="flex-col justify-center border-solid border-black border-2 bg-stone-400 m-10 mx-60 rounded-2xl p-16">
+<section class="flex-col justify-center border-solid border-black border-2 bg-stone-300 m-10 mx-60 rounded-2xl p-16">
     <h2 class="text-center text-4xl m-4 font-bold">Nouveau favori</h2>
     <h3 class="text-center text-2xl">Champs à renseigner :</h2>
     <form action="" method="post" class="text-center">
@@ -106,7 +106,7 @@
 
             <!--Bouton d'envoi du formulaire-->
         <div class="flex justify-center m-4">
-            <button type="submit" value="envoyer" class="bg-stone-700 text-white text-2xl font-bold rounded-lg p-2 border-solid border-black border-2 mb-5">Envoyer</button>
+            <button type="submit" value="envoyer" class="bg-stone-500 text-white text-2xl font-bold rounded-lg p-2 border-solid border-black border-2 mb-5">Envoyer</button>
         </div>
     </form>
 </section>

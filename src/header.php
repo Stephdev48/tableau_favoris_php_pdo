@@ -11,5 +11,5 @@
 </head>
 <body style="background-image: url('../src/images/fond-marbre.jpg')">
     <header class="p-16">
-        <h1 class="text-8xl font-bold text-center">Mes favoris</h1>
+        <h1 class="text-5xl md:text-7xl xl:text-8xl font-bold text-center">Mes favoris</h1>
     </header>
