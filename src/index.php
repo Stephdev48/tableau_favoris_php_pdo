@@ -36,17 +36,17 @@
 
 
 
-<!-- Sélecteur de catégorie et de domaine et champ de recherche -->
-    <section class="flex">
+<!-- Sélecteur de catégorie et de domaine, champ de recherche et nouveau favori -->
+    <section class="grid grid-cols-1 lg:grid-cols-2">
 
         <!-- Zone de recherche et filtre -->
-        <fieldset class="flex-col p-10 items-center border-solid border-black border-2 bg-stone-300 m-4 rounded-2xl">
+        <fieldset class="p-10 border-solid border-black border-2 bg-stone-300 m-4 rounded-2xl">
             <legend class="text-2xl text-white font-bold bg-stone-800 p-3 rounded-lg border-solid border-black border-2">Recherche</legend>
-            <div class="flex md:flex-row items-center">
-                <form action="" method="GET" class="flex-col">
+            <div class="">
+                <form action="" method="GET" class="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3">
 
                     <!-- Choix des catégories -->
-                    <div class="m-2 flex-col text-center">
+                    <div class="m-2 text-center">
                         <label class="text-2xl pr-5 font-bold">Catégories</label>
                         <select name="categories" class="text-xl border-solid border-2 border-black rounded-xl p-2 cursor-pointer  hover:bg-slate-100 hover:shadow-xl">
                         <option value="">-- Choix de la catégorie --</option>
@@ -61,7 +61,7 @@
                     </div>
 
                     <!-- Choix du domaine -->
-                    <div class="m-2 flex-col text-center">
+                    <div class="m-2 text-center xl:ml-20">
                         <label class="text-2xl pr-5 font-bold">Domaines</label>
                         <select name="domaines" class="text-xl border-solid border-2 border-black rounded-xl p-2 cursor-pointer  hover:bg-slate-100 hover:shadow-xl">
                             <option value="">-- Choix du domaine --</option>
@@ -76,7 +76,7 @@
                     </div>
 
                     <!-- Bouton filtre -->
-                    <div class="flex justify-center">
+                    <div class="text-center">
                         <input type="submit" name="filtre" value="Filtrer" class="m-2 text-xl font-semibold bg-blue-400 p-3 rounded-xl border-solid border-black border-2 cursor-pointer hover:bg-blue-500">
                     </div>
                 </form>
@@ -86,7 +86,7 @@
             <form action="search.php" method="GET" class="flex-col justify-center pt-10 pb-2 text-xl font-semibold">
                     <h3 class="m-2 text-center">Recherche par mot-clé</h3>
                     <div class="flex justify-center">
-                        <input type="search" name="terme" class="rounded-lg p-2" placeholder="Tape UN mot puis entrée" size="18">
+                        <input type="search" name="terme" class="rounded-lg p-2 text-center" placeholder="Tape 1 mot et entrée" size="20">
                     </div>
             </form>
         </fieldset>
@@ -104,7 +104,7 @@
 
 
 <!-- Affichage du nombre de favoris -->
-    <div class="flex justify-center">
+    <div class="flex justify-center md:justify-start md:ml-16">
         <p class="text-2xl font-bold p-6 border-solid border-black border-2 bg-stone-300 rounded-2xl mt-20">Tableau de <i class='text-indigo-700'><?php echo count($favoris);?></i> favoris</p>
     </div>                       
 
