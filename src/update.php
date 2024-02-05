@@ -1,6 +1,8 @@
 <!-- Envoi de la requête de modification -->
 <?php
+    include("header.php");
     include("pdo.php");
+    
     if(count($_POST)>0){
 
         //Récupération des champs du formulaire
@@ -41,7 +43,7 @@
         header('Location: index.php?modif='.$_GET['id']);
 
         }else{
-            echo "<script>alert('Catégories et domaine requis !')</script>";
+            echo "<script>alerte()</script>";
         }
     }
 ?>
@@ -51,8 +53,6 @@
 
 <!-- Inclusion header et récupération du favoris à modifier-->
 <?php
-
-    include("header.php");
 
 
     //Récupération des données du favoris à modifier :

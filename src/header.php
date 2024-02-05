@@ -7,6 +7,7 @@
     <meta name="keywords" content="base de données, formation, favoris, apprentissage, html, css, javascript, tailwind">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./output.css" rel="stylesheet">
+    <script src="scripts.js"></script>
     <title>Base de données favoris</title>
 </head>
 <body style="background-image: url('../src/images/fond-marbre.jpg')">

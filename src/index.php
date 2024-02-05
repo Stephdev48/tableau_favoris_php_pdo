@@ -48,22 +48,22 @@
                     <!-- Choix des catégories -->
                     <div class="m-2 text-center">
                         <label class="text-2xl pr-5 font-bold">Catégories</label>
-                        <select name="categories" class="text-xl border-solid border-2 border-black rounded-xl p-2 cursor-pointer  hover:bg-slate-100 hover:shadow-xl">
-                        <option value="">-- Choix de la catégorie --</option>
-                        <?php 
-                            foreach($categories as $categorie){
+                        <select id="menu_cat" name="categories" class="text-xl border-solid border-2 border-black rounded-xl p-2 cursor-pointer  hover:bg-slate-100 hover:shadow-xl">
+                            <option value="">-- Choix de la catégorie --</option>
+                            <?php 
+                                foreach($categories as $categorie){
+                                ?>
+                                <option value="<?php echo $categorie['id_cat']?>"><?php echo $categorie['nom_cat']?></option>
+                                <?php
+                                }
                             ?>
-                            <option value="<?php echo $categorie['id_cat']?>"><?php echo $categorie['nom_cat']?></option>
-                            <?php
-                            }
-                        ?>
                         </select>
                     </div>
 
                     <!-- Choix du domaine -->
                     <div class="m-2 text-center xl:ml-20">
                         <label class="text-2xl pr-5 font-bold">Domaines</label>
-                        <select name="domaines" class="text-xl border-solid border-2 border-black rounded-xl p-2 cursor-pointer  hover:bg-slate-100 hover:shadow-xl">
+                        <select id="menu_dom" name="domaines" class="text-xl border-solid border-2 border-black rounded-xl p-2 cursor-pointer  hover:bg-slate-100 hover:shadow-xl">
                             <option value="">-- Choix du domaine --</option>
                             <?php 
                                 foreach($domaines as $domaine){
@@ -76,8 +76,8 @@
                     </div>
 
                     <!-- Bouton filtre -->
-                    <div class="flex items center justify-center xl:col-span-2">
-                        <input type="submit" name="filtre" value="Filtrer" class="h-3/4 w-1/4 lg:w-1/2 m-2 text-xl font-semibold bg-blue-400 p-3 rounded-xl border-solid border-black border-2 cursor-pointer hover:bg-blue-500">
+                    <div id="button_filter" class="flex items center justify-center xl:col-span-2">
+                    <input type='submit' name='filtre' value='Filtrer' class='h-3/4 w-1/4 lg:w-1/2 m-2 text-xl font-semibold bg-blue-400 p-3 rounded-xl border-solid border-black border-2 cursor-pointer hover:bg-blue-500'>
                     </div>
                 </form>
             </div>
