@@ -37,12 +37,12 @@
 
 
 <!-- Sélecteur de catégorie et de domaine, champ de recherche et nouveau favori -->
-    <section class="grid grid-cols-1 lg:grid-cols-2">
+    <section class="grid grid-cols-1 xl:grid-cols-3">
 
         <!-- Zone de recherche et filtre -->
-        <fieldset class="p-10 border-solid border-black border-2 bg-stone-300 m-4 rounded-2xl">
+        <fieldset class="p-6 border-solid border-black border-2 bg-stone-300 m-4 rounded-2xl col-span-2">
             <legend class="text-2xl text-white font-bold bg-stone-800 p-3 rounded-lg border-solid border-black border-2">Recherche</legend>
-            <div class="">
+            <div class="grid">
                 <form action="" method="GET" class="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3">
 
                     <!-- Choix des catégories -->
@@ -76,8 +76,8 @@
                     </div>
 
                     <!-- Bouton filtre -->
-                    <div class="text-center">
-                        <input type="submit" name="filtre" value="Filtrer" class="m-2 text-xl font-semibold bg-blue-400 p-3 rounded-xl border-solid border-black border-2 cursor-pointer hover:bg-blue-500">
+                    <div class="flex items center justify-center xl:col-span-2">
+                        <input type="submit" name="filtre" value="Filtrer" class="h-3/4 w-1/4 lg:w-1/2 m-2 text-xl font-semibold bg-blue-400 p-3 rounded-xl border-solid border-black border-2 cursor-pointer hover:bg-blue-500">
                     </div>
                 </form>
             </div>
@@ -114,19 +114,19 @@
     <section>
         <table class="flex justify-center m-10">
             <tr class=" bg-stone-400">
-                <th class="border-solid border-2 border-black p-2.5 text-2xl">Libellé</th>
-                <th class="border-solid border-2 border-black p-2.5 text-2xl">Date d'ajout</th>
-                <th class="border-solid border-2 border-black p-2.5 text-2xl">Lien</th>
-                <th class="border-solid border-2 border-black p-2.5 text-2xl">Afficher</th>
-                <th class="border-solid border-2 border-black p-2.5 text-2xl">Options</th>
+                <th class="border-solid border-2 border-black p-2.5 text-sm md:text-2xl">Libellé</th>
+                <th class="border-solid border-2 border-black p-2.5 text-sm md:text-2xl">Date d'ajout</th>
+                <th class="border-solid border-2 border-black p-2.5 text-sm md:text-2xl">Lien</th>
+                <th class="border-solid border-2 border-black p-2.5 text-sm md:text-2xl">Afficher</th>
+                <th class="border-solid border-2 border-black p-2.5 text-sm md:text-2xl">Options</th>
             </tr>
             <?php 
                 foreach($favoris as $favori){
                     ?>
                     <tr class="hover:bg-slate-300 odd:bg-slate-100 even:bg-slate-200">
-                        <td class="border-solid border-2 border-black p-2.5 font-bold text-lg"><span class="ml-4"><?php echo $favori["libelle"];?></span></td>
-                        <td class="border-solid border-2 border-black p-2.5 font-bold text-center text-lg"><?php echo $favori["date_creation"];?></td>
-                        <td class="border-solid border-2 border-black p-2.5 font-bold text-lg"><span class="ml-4"><?php echo "<a href='".$favori['url']."' target='about_blank'class='text-teal-500 underline'>".$favori['url']."</a>";?></span></td>
+                        <td class="border-solid border-2 border-black p-2.5 font-bold text-sm lg:text-2xl"><span class="ml-4"><?php echo $favori["libelle"];?></span></td>
+                        <td class="border-solid border-2 border-black p-2.5 font-bold text-center text-sm md:text-2xl"><?php echo $favori["date_creation"];?></td>
+                        <td class="border-solid border-2 border-black p-2.5 font-bold text-sm lg:text-2xl"><span class="ml-4"><?php echo "<a href='".$favori['url']."' target='about_blank'class='text-teal-500 underline'>".$favori['url']."</a>";?></span></td>
                         <td class="border-solid border-2 border-black p-2.5 text-center">
                             <a href="seeFavori.php?id=<?php echo $favori["id_fav"]?>" target='_blank' class="flex justify-center"><img src="images/eye-regular.svg" alt="see_icon" width="35px" class="bg-violet-400 hover:bg-violet-500 rounded-lg p-1"/></a>
                         </td>
