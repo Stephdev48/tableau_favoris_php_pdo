@@ -44,6 +44,8 @@
             <legend class="text-2xl text-white font-bold bg-stone-800 p-3 rounded-lg border-solid border-black border-2">Recherche</legend>
             <div class="flex items-center">
                 <form action="" method="GET">
+
+                    <!-- Choix des catégories -->
                     <label class="text-2xl pr-5 font-bold">Catégories</label>
                     <select name="categories" class="text-xl border-solid border-2 border-black rounded-xl p-2 cursor-pointer  hover:bg-slate-100 hover:shadow-xl">
                         <option value="">-- Choix de la catégorie --</option>
@@ -55,6 +57,8 @@
                             }
                         ?>
                     </select>
+
+                    <!-- Choix du domaine -->
                     <label class="text-2xl pr-5 font-bold ml-20">Domaines</label>
                     <select name="domaines" class="text-xl border-solid border-2 border-black rounded-xl p-2 cursor-pointer  hover:bg-slate-100 hover:shadow-xl">
                         <option value="">-- Choix du domaine --</option>
@@ -66,9 +70,13 @@
                             }
                         ?>
                     </select>
-                    <input type="submit" name="filtre" value="Filtrer" class="text-xl bg-sky-300 p-3 rounded-xl border-solid border-black border-2 ml-20 cursor-pointer hover:bg-sky-400">
+
+                    <!-- Bouton filtre -->
+                    <input type="submit" name="filtre" value="Filtrer" class="text-xl font-semibold bg-blue-400 p-3 rounded-xl border-solid border-black border-2 ml-20 cursor-pointer hover:bg-blue-500">
                 </form>
             </div>
+
+                <!-- Champ de recherche -->
             <form action="search.php" method="GET" class="flex pt-10 pb-2 text-xl font-semibold items-center">
                     <h3 class="mr-8">Recherche par mot-clé</h3>
                     <input type="search" name="terme" class="rounded-lg p-2" placeholder="Tape UN mot puis entrée" size="30">
@@ -84,6 +92,15 @@
         </fieldset>
         
     </section>
+
+
+
+<!-- Affichage nombre de favoris -->
+    <div class="w-1/4 flex justify-center">
+        <?php
+            echo "<p class='text-2xl font-bold flex items-center justify-center p-6 border-solid border-black border-2 bg-stone-300 rounded-2xl mt-20'>"."Tableau de&nbsp <i class='text-indigo-700'>".count($favoris)."</i>&nbspfavoris</p>";
+        ?>
+    </div>                       
 
 
 
@@ -126,7 +143,5 @@
 
 <!-- Inclusion du footer -->
 <?php
-
     include("footer.php");
-
 ?>
