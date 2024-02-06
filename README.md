@@ -13,7 +13,6 @@ xampp
 ## reste à faire / peaufinage
 
 -responsive
--bouton filtre plante si pas d'entrée dans le menu déroulant
 -trier favoris dans tableau asc dsc
 -pagination à 10 favoris
 -try catch aux requêtes, et pas seulement dans la requête PDO
