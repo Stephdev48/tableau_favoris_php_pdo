@@ -74,6 +74,19 @@
     $result_dom = $pdo->query("SELECT * FROM domaine");
     $domaines = $result_dom->fetchAll(PDO::FETCH_ASSOC);
 
+    //Récupération du nom des catégories :
+    $req_nom_cat = ("SELECT nom_cat FROM categorie INNER JOIN cat_fav ON categorie.id_cat = cat_fav.id_cat WHERE cat_fav.id_fav = ".$_GET['id'].";");
+    $cat_name = $pdo->query($req_nom_cat);
+    $nom_cat = $cat_name->fetchAll(PDO::FETCH_ASSOC);
+    // echo "<pre>";
+    // var_dump($nom_cat);
+    // echo "</pre>";
+
+    //Récupération du nom de domaine avant modif' :
+    $req_nom_dom = ("SELECT nom FROM domaine WHERE id_dom=$fav_a_modif[id_dom];");
+    $domain_name = $pdo->query($req_nom_dom);
+    $nom_dom = $domain_name->fetch(PDO::FETCH_ASSOC);
+
 ?>
 
 
@@ -96,7 +109,7 @@
                 <label class="flex items-center text-xl justify-center">Catégorie</label>
                 <span class="flex justify-center text-sm p-1">( Maintenir CTRL pour sélectionner plusieurs catégories )</span>
                 <div class="flex justify-center items-center m-2">
-                    <h3 class="mr-3 p-3 rounded-lg bg-white italic text-cyan-700 h-1/6">Catégories d'origine : <?php foreach($cat_cat as $cat_cat_bis){echo "<p>".$cat_cat_bis['id_cat']."</p>";}?></h3>
+                    <h3 class="mr-3 p-3 rounded-lg bg-white italic text-cyan-700 h-1/6">Catégories avant modif' : <?php foreach($nom_cat as $cat_names){echo "<p>".$cat_names['nom_cat']."</p>";}?></h3>
                     <select class="cursor-pointer hover:bg-slate-100 hover:shadow-xl rounded-lg p-3" id="cat" name="cat[]" multiple>
                         <option value="">-- Choix des catégories --</option>
                             <?php 
@@ -114,7 +127,7 @@
             <li class="flex-col m-6">
                 <label class="flex items-center text-xl justify-center p-2">Domaine</label>
                 <div class="flex justify-center m-2">
-                    <h3 class="mr-3 p-3 rounded-lg italic bg-white text-cyan-700">Domaine d'origine : <?php echo $fav_a_modif['id_dom'];?></h3>
+                    <h3 class="mr-3 p-3 rounded-lg italic bg-white text-cyan-700">Domaine avant modif' : <?php echo $nom_dom['nom'];?></h3>
                     <select id="dom" name="dom" class="cursor-pointer hover:bg-slate-100 hover:shadow-xl rounded-lg p-3">
                         <option value="">-- Choix du domaine --</option>
                         <?php 
