@@ -6,7 +6,7 @@
 
 
 
-<!-- Récupération du favori -->
+<!-- Récupération du favori et de ses caractéristiques -->
 <?php
 
     $requete = ("SELECT * FROM favori WHERE id_fav=$_GET[id];");
@@ -34,8 +34,12 @@
     // var_dump($nom_dom);
     // echo "</pre>";
 
-    $req_nom_cat = 
-
+    $req_nom_cat = ("SELECT nom_cat FROM categorie INNER JOIN cat_fav ON categorie.id_cat = cat_fav.id_cat WHERE cat_fav.id_fav = ".$_GET['id'].";");
+    $cat_name = $pdo->query($req_nom_cat);
+    $nom_cat = $cat_name->fetchAll(PDO::FETCH_ASSOC);
+    // echo "<pre>";
+    // var_dump($nom_cat);
+    // echo "</pre>";
 ?>
 
 
@@ -65,11 +69,15 @@
         <div class="flex-col ml-14 mr-14 text-lg font-bold items-center justify-center">
             <p class="text-center">Catégories associées</p>
             <div class="flex justify-center">
-                <div class="italic mt-2 text-center flex items-center justify-center text-white bg-stone-700 p-2 rounded-xl h-1/4 w-3/5 space-x-2">
+                <div class="italic mt-2 flex items-center justify-center text-white bg-stone-700 p-2 rounded-xl h-1/4 space-x-4">
                     <?php 
-                        foreach($cat_list as $categ){
-                            echo "<span>".$categ['id_cat']."</span>";
+                        if (!empty($nom_cat)){
+                        foreach($nom_cat as $cat_names){
+                            echo "<span class='text-center'>".$cat_names['nom_cat']."</span>";
                         }
+                    }else{
+                        echo "<p>( Aucune )</p>";
+                    }
                     ?>
                 </div> 
             </div>   
