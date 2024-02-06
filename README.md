@@ -16,6 +16,7 @@ xampp
 -trier favoris dans tableau asc dsc
 -pagination à 10 favoris
 -try catch aux requêtes, et pas seulement dans la requête PDO
+-nom des catégories et des domaines plutôt que les chiffres  ( group_concat )
 
 ## commandes pour Tailwind
 
