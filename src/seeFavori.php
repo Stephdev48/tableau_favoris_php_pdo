@@ -16,16 +16,15 @@
     $req_cat = ("SELECT id_cat FROM cat_fav WHERE id_fav=$_GET[id];");
     $list_cat = $pdo->query($req_cat);
     $cat_list = $list_cat->fetchAll(PDO::FETCH_ASSOC);
-    echo "<pre>";
-    var_dump($cat_list);
-    echo "</pre>";
+    // echo "<pre>";
+    // var_dump($cat_list);
+    // echo "</pre>";
 
     $req_dom = ("SELECT id_dom FROM favori WHERE id_fav=$_GET[id];");
     $domain = $pdo->query($req_dom);
     $id_dom = $domain->fetch(PDO::FETCH_ASSOC);
     
 ?>
-
 
 
 
@@ -81,4 +80,4 @@
 <!-- Inclusion footer -->
 <?php
     include("footer.php");
-    ?>
+?>
