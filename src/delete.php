@@ -12,8 +12,8 @@
     $req_delete = ("DELETE FROM favori WHERE id_fav=".$_GET['id_del'].";");
     $exec = $pdo->prepare($req_delete);
     if($exec->execute()==true){
-        echo "<h2 class='text-3xl text-center m-40 font-bold'>Favori supprimé.<br>Redirection dans 2 secondes...</h2>";
-        header( "refresh:2; url=index.php" ); 
+        echo "<h2 class='text-3xl text-center m-40 font-bold'>Favori supprimé.<br>Redirection dans 3 secondes...</h2>";
+        header( "refresh:3; url=index.php" ); 
     }else{
         echo "<h2 class='text-3xl text-center m-40 font-bold'>Erreur lors de la suppression</h2>";
     }
