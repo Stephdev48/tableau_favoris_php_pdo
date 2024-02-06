@@ -39,10 +39,10 @@
 
 
 <!-- Sélecteur de catégorie et de domaine, champ de recherche et nouveau favori -->
-    <section class="grid grid-cols-1 xl:grid-cols-3">
+    <section class="grid grid-cols-1 xl:grid-cols-4">
 
         <!-- Zone de recherche et filtre -->
-        <fieldset class="p-6 border-solid border-black border-2 bg-stone-300 m-4 rounded-2xl col-span-2">
+        <fieldset class="p-6 border-solid border-black border-2 bg-stone-300 m-4 rounded-2xl col-span-3">
             <legend class="text-2xl text-white font-bold bg-stone-800 p-3 rounded-lg border-solid border-black border-2">Recherche</legend>
             <div class="grid ">
                 <form action="" method="GET" class="grid grid-cols-1 xl:grid-cols-2">
@@ -78,14 +78,14 @@
                     </div>
 
                     <!-- Bouton filtre -->
-                    <div id="button_filter" class="flex items center justify-center xl:col-span-2">
-                    <input type='submit' name='filtre' value='Filtrer' class='h-3/4 w-1/4 lg:w-1/3 xl:w-1/4 m-2 text-xl font-semibold bg-blue-400 p-3 rounded-xl border-solid border-black border-2 cursor-pointer hover:bg-blue-500'>
+                    <div class="flex items-center justify-center xl:col-span-2 m-6">
+                        <input type='submit' name='filtre' value='Filtrer' class='h-3/4 w-1/4 lg:w-1/3 xl:w-1/4 m-2 text-xl font-semibold bg-blue-400 p-3 rounded-xl border-solid border-black border-2 cursor-pointer hover:bg-blue-500'>
                     </div>
                 </form>
             </div>
 
                 <!-- Champ de recherche -->
-            <form action="search.php" method="GET" class="flex-col justify-center pt-10 pb-2 text-xl font-semibold">
+            <form action="search.php" method="GET" class="flex-col justify-center pt-6 pb-2 text-xl font-semibold">
                     <h3 class="m-2 text-center">Recherche par mot-clé</h3>
                     <div class="flex justify-center">
                         <input type="search" name="terme" class="rounded-lg p-2 text-center" placeholder="Tape 1 mot et entrée" size="20">
@@ -97,7 +97,7 @@
         <fieldset class="flex items-center justify-center p-6 border-solid border-black border-2 bg-stone-300 m-6 rounded-2xl">
             <legend class="text-2xl text-white font-bold bg-stone-800 p-3 rounded-lg border-solid border-black border-2">Nouveau favori</legend>
             <a href="create.php" class="flex">
-                <img src="images/file-circle-plus-regular.svg" alt="icone d'ajout de favori" width="80px" class="border-solid border-black border-2 rounded-2xl p-2 bg-lime-500 hover:bg-lime-600">
+                <img src="images/file-circle-plus-regular.svg" alt="icone d'ajout de favori" width="90px" class="border-solid border-black border-2 rounded-2xl p-2 bg-lime-500 hover:bg-lime-600">
             </a>
         </fieldset>
         
@@ -125,7 +125,7 @@
                 foreach($favoris as $favori){
                     ?>
                     <tr class="hover:bg-slate-300 odd:bg-slate-100 even:bg-slate-200">
-                        <td class="border-solid border-2 border-black p-2.5 font-bold text-sm lg:text-2xl"><span class="ml-4"><?php echo $favori["libelle"];?></span></td>
+                        <td class="border-solid border-2 border-black p-2.5 font-bold text-sm lg:text-2xl  text-center"><span class="ml-4"><?php echo $favori["libelle"];?></span></td>
                         <td class="border-solid border-2 border-black p-2.5 font-bold text-sm lg:text-2xl">
                             <?php echo "<a href='".$favori['url']."' target='about_blank'><img src='images/link-solid.svg' width='35px' class='bg-teal-400 hover:bg-teal-500 rounded-lg p-1 2xl:hidden'/></a>";?>
                             <span class="ml-4 hidden 2xl:contents"><?php echo "<a href='".$favori['url']."' target='about_blank'class='text-teal-500 underline'>".$favori['url']."</a>";?></span>
