@@ -16,11 +16,11 @@ xampp
 
 ## reste à faire / peaufinage / aller plus loin
 
+-nom des catégories plutôt que les chiffres  ( group_concat )
 -responsive des pages create et update
 -trier favoris dans tableau asc dsc
 -pagination à 10 favoris
 -try catch aux requêtes, et pas seulement dans la requête PDO
--nom des catégories et des domaines plutôt que les chiffres  ( group_concat )
 
 
 ## commandes pour Tailwind
