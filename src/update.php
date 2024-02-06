@@ -12,35 +12,33 @@
 
 
 
-        if ((!empty($_POST['cat']) && (!empty($_POST['dom'])))){
+        if ((!empty($_POST['cat']) && (!empty($_POST['dom'])))){       
         
+            //Modification de la ligne dans la table favori
+            $modifier_favori = ("UPDATE favori SET libelle=:nom, id_dom=:dom, url=:url WHERE id_fav=:id_fav;");
+            $arrayParam = array(':nom' => $nom, ':dom' => $dom, ':url' => $url, ':id_fav' => $_GET['id']);
+            $result_final_fav = $pdo->prepare($modifier_favori); 
+            $result_final_fav->execute($arrayParam);
         
-        
-        //Modification de la ligne dans la table favori
-        $modifier_favori = ("UPDATE favori SET libelle=:nom, id_dom=:dom, url=:url WHERE id_fav=:id_fav;");
-        $arrayParam = array(':nom' => $nom, ':dom' => $dom, ':url' => $url, ':id_fav' => $_GET['id']);
-        $result_final_fav = $pdo->prepare($modifier_favori); 
-        $result_final_fav->execute($arrayParam);
-    
 
 
-        //Modification des catégories
-            //suppression de tous les id_cat
-            $cats_delete = ("DELETE FROM cat_fav WHERE id_fav=:id_fav;");
-            $exec = $pdo->prepare($cats_delete);
-            $exec->execute(array(':id_fav'=>$_GET['id']));
+            //Modification des catégories
+                //suppression de tous les id_cat
+                $cats_delete = ("DELETE FROM cat_fav WHERE id_fav=:id_fav;");
+                $exec = $pdo->prepare($cats_delete);
+                $exec->execute(array(':id_fav'=>$_GET['id']));
 
-            //ajout des nouveaux id_cat
-            foreach($_POST['cat'] as $cat){
-                $ajout_id_cat = ("INSERT INTO cat_fav (id_fav, id_cat) VALUES (:id_favori, :cat);");
-                $arrayParam = array(':id_favori'=>$_GET['id'], ':cat'=>$cat);
-                $result_id_fav = $pdo->prepare($ajout_id_cat);
-                $result_id_fav->execute($arrayParam);
-            }
+                //ajout des nouveaux id_cat
+                foreach($_POST['cat'] as $cat){
+                    $ajout_id_cat = ("INSERT INTO cat_fav (id_fav, id_cat) VALUES (:id_favori, :cat);");
+                    $arrayParam = array(':id_favori'=>$_GET['id'], ':cat'=>$cat);
+                    $result_id_fav = $pdo->prepare($ajout_id_cat);
+                    $result_id_fav->execute($arrayParam);
+                }
 
 
-        //Redirection vers index.php
-        header('Location: index.php?modif='.$_GET['id']);
+            //Redirection vers index.php
+            header('Location: index.php?modif='.$_GET['id']);
 
         }else{
             echo "<script>alerte()</script>";
@@ -78,9 +76,6 @@
     $req_nom_cat = ("SELECT nom_cat FROM categorie INNER JOIN cat_fav ON categorie.id_cat = cat_fav.id_cat WHERE cat_fav.id_fav = ".$_GET['id'].";");
     $cat_name = $pdo->query($req_nom_cat);
     $nom_cat = $cat_name->fetchAll(PDO::FETCH_ASSOC);
-    // echo "<pre>";
-    // var_dump($nom_cat);
-    // echo "</pre>";
 
     //Récupération du nom de domaine avant modif' :
     $req_nom_dom = ("SELECT nom FROM domaine WHERE id_dom=$fav_a_modif[id_dom];");
