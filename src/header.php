@@ -10,7 +10,7 @@
     <script src="scripts.js"></script>
     <title>Base de données favoris</title>
 </head>
-<body style="background-image: url('../src/images/fond-marbre.jpg')">
+<body style="background-image: url('../src/images/fond-marbre.jpg'); background-repeat: no-repeat; background-size: cover;">
     <header class="p-16">
         <h1 class="text-5xl md:text-7xl xl:text-8xl font-bold text-center">Mes favoris</h1>
     </header>

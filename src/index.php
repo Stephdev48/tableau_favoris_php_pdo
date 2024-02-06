@@ -85,7 +85,7 @@
             </div>
 
                 <!-- Champ de recherche -->
-            <form action="search.php" method="GET" class="flex-col justify-center pt-6 pb-2 text-xl font-semibold">
+            <form action="search.php" method="GET" class="flex-col justify-center pt-4 pb-2 text-xl font-semibold">
                     <h3 class="m-2 text-center">Recherche par mot-clé</h3>
                     <div class="flex justify-center">
                         <input type="search" name="terme" class="rounded-lg p-2 text-center" placeholder="Tape 1 mot et entrée" size="20">
