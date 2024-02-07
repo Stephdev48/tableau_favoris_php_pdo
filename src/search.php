@@ -2,7 +2,7 @@
 <?php
     include("header.php");
     include("pdo.php");
-    ?>
+?>
 
 
 <!-- Requête de recherche -->
@@ -10,7 +10,7 @@
     $req_search = ("SELECT * FROM favori WHERE libelle LIKE '%".$_GET['terme']."%';");
     $search = $pdo->query($req_search);
     $result_search = $search->fetchAll(PDO::FETCH_ASSOC);
-    ?>
+?>
 
 
 
@@ -38,8 +38,12 @@
                             <button type="submit" name="see" value="see"><a href="seeFavori.php?id=<?php echo $mon_result["id_fav"]?>" target='_blank'><img src="images/eye-regular.svg" alt="see_icon" width="35px" class="bg-violet-400 rounded-lg p-1"/></a></button>
                         </td>
                         <td class="border-solid border-2 border-black p-2.5 text-center">
-                            <button type="submit" name="options" value="edit"><img src="images/pen-to-square-regular.svg" alt="edit_icon" width="35px" class="bg-yellow-300 rounded-lg p-1"/></button>
-                            <button type="submit" name="options" value="del"><img src="images/trash-can-regular.svg" alt="trash_can" width="32px"class="bg-red-500 rounded-lg p-1"/></button>
+                            <div class="flex justify-center items-center">
+                                <?php echo "<a href='update.php?id=".$mon_result["id_fav"]."'><img src='images/pen-to-square-regular.svg' alt='edit_icon' width='35px' class='bg-yellow-300 hover:bg-yellow-500 rounded-lg p-1'/></a>";
+                                ?>
+                                <?php echo "<a href='delete.php?id_del=".$mon_result['id_fav']."' class='ml-2'><img src='images/trash-can-regular.svg' alt='delete_icon' width='32px' class='bg-red-500 hover:bg-red-700 rounded-lg p-1'/></a>";
+                                ?>
+                            </div>
                         </td>
                     </tr>
                     <?php
@@ -50,8 +54,7 @@
 
 
 
-
 <!-- Inclusion footer -->
 <?php
     include("footer.php");
-    ?>
+?>
