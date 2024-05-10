@@ -6,4 +6,3 @@ define('USER',"favoris_user");
 define('PASSWD',"YNJuzTq/(WqE5lVR");
 define('BASE',"favoris");
 
-?>
