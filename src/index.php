@@ -125,7 +125,8 @@
                 foreach($favoris as $favori){
                     ?>
                     <tr class="hover:bg-slate-300 odd:bg-slate-100 even:bg-slate-200">
-                        <td class="border-solid border-2 border-black p-2.5 font-bold text-sm lg:text-2xl  text-center"><span class="ml-4"><?php echo $favori["libelle"];?></span></td>
+                        <td class="border-solid border-2 border-black p-2.5 font-bold text-sm lg:text-2xl  text-center"><span class="ml-4"><?php echo $favori["libelle"];?></span>
+                        </td>
                         <td class="border-solid border-2 border-black p-2.5 font-bold text-sm lg:text-2xl">
                             <?php echo "<a href='".$favori['url']."' target='about_blank'><img src='images/link-solid.svg' width='35px' class='bg-teal-400 hover:bg-teal-500 rounded-lg p-1 2xl:hidden'/></a>";?>
                             <span class="ml-4 hidden 2xl:contents"><?php echo "<a href='".$favori['url']."' target='about_blank'class='text-teal-500 underline'>".$favori['url']."</a>";?></span>
