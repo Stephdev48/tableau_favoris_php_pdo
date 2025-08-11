@@ -1,4 +1,4 @@
-# brief_06_php_pdo_stephane
+# tableau_favoris_php_pdo
 
 Réalisation d'une base de données consultable et modifiable, et qui regroupe des favoris utiles au développement web.
 
